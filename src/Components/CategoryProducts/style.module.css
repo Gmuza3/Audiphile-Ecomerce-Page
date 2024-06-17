@@ -1,0 +1,105 @@
+.category-main-head{
+    width: 100%;
+    min-height:235px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: var(--black);
+    padding: 195px 0px 97px ;
+}
+.category-main-head h5{
+    color: var(--white);
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1em;
+    letter-spacing: 1.429px;
+    text-transform: uppercase;
+}
+
+.container{
+    padding: 160px 165px 0px;
+    position: relative;
+}
+.container ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 160px;
+}
+.container ul li{
+    width: 100%;
+}
+.container ul li .category-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 125px;
+}
+.category-container .container-left-side{
+    width: 55%;
+    border-radius: 8px;
+    background: var(--gray);
+    display: block;
+}
+.category-container .container-left-side img{
+    width: 100%;
+}
+.category-container .container-right-side{
+    width: 45%;
+}
+.category-container .container-right-side .container-details{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.category-container .container-right-side .container-details p{
+    color: #D87D4A;
+    font-family: "Manrope";
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+.category-container .container-right-side .container-details .container-text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.category-container .container-right-side .container-details .container-text h4{
+    color: var(--black);
+    font-family: "Manrope";
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1em; 
+    letter-spacing: 1.429px;
+    text-transform: uppercase;
+}
+.category-container .container-right-side .container-details .container-text span{
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Manrope";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.66em;
+}
+.category-container .container-right-side .container-details .container-button{
+    padding-top: 24px;
+}
+@media (min-width:1540px) {
+    .category-container .container-left-side{
+        max-width: 580px;
+        height: 580px;
+        border-radius: 8px;
+        background: var(--gray);
+        display: block;
+    }
+    .category-container .container-left-side img{
+        width: 100%;
+    }
+}

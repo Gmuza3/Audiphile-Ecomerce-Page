@@ -1,0 +1,123 @@
+.radioInput {
+    width: 100%;
+    padding: 16px 52px 19px 52px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+}
+.radioInput:checked{
+    border: 1px solid var(--orange);
+}
+
+.radioInput input {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+input[type="radio"] {
+    accent-color: var(--orange);
+}
+
+.radioInput label {
+    color: var(--black);
+    font-family: "Manrope";
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+}
+/* .radioInput input[type="radio"]:checked + .radioInput {
+    border-radius: 8px;
+    border: 1px solid var(--orange);
+    background: #FFF;
+} */
+.radioInput:hover{
+    border-radius: 8px;
+    border: 1px solid var(--orange);
+    background: var(--white);
+}
+
+.inputWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.labelWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.label {
+    color: var(--black);
+    font-family: "Manrope";
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.214px;
+}
+
+.input {
+    width: 309px; 
+    height: 56px;
+    padding: 18px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+}
+.input-100w{
+    width: 100%;
+    height: 56px;
+    padding: 18px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+}
+.input:focus,.input-100w:focus{
+    border-radius: 8px;
+    border: 1px solid var(--orange);
+    background: #FFF;
+}
+
+.inputError{
+    border-radius: 8px;
+    border: 2px solid #CD2C2C;
+    background: #FFF;
+}
+.isError{
+    color: #CD2C2C;
+    font-family: "Manrope";
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.214px;
+}
+.inputError {
+    border-color: red; 
+}
+.textError{
+    color: #CD2C2C;
+    text-align: right;
+    font-family: "Manrope";
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.214px;
+}
+
+.input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-family: "Manrope";
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+}
+.input-100w::placeholder{
+    color: rgba(0, 0, 0, 0.4);
+    font-family: "Manrope";
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+}

@@ -1,0 +1,290 @@
+.zone{
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    background-color: #fff;
+    padding-top: 79px;
+}
+
+.product-zone{
+    padding: 89px 165px 0px;
+}
+
+.product-zone .goBackTag span{
+    color: rgba(0,0,0,0.5);
+    font-family: "Manrope";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.667em;
+    cursor: pointer;
+}
+.product-details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 160px;
+}
+
+.product-headerSide{
+    /* position: relative;
+    z-index: 1; */
+    padding-top: 56px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 125px;
+}
+.product-headerSide .product-imgSide{
+    width: 55%;
+    border-radius: 8px;
+    background: var(--gray);
+    display: block;
+}
+.activeZone .product-headerSide .product-changeImgSide{
+    width: 55%;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.4);
+    display: block;
+} 
+.activeZone .product-headerSide .product-changeImgSide img{
+    width: 100%;
+} 
+.product-headerSide .product-imgSide img{
+    width: 100%;
+}
+.product-headerSide .product-textSide{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 32px;
+}
+.product-headerSide .product-textSide p{
+    color: #D87D4A;
+    font-family: "Manrope";
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+.product-headerSide .product-textSide h4{
+    color: var(--black);
+    font-family: "Manrope";
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1em;
+    letter-spacing: 1.429px;
+    text-transform: uppercase;
+}
+.product-headerSide .product-textSide span{
+    width: 100%;
+    color:rgba(0, 0, 0, 0.5);
+    font-family: "Manrope";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+}
+.product-headerSide .product-textSide .priceLine{
+    color: var(--black);
+    font-family: "Manrope";
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.286px;
+    text-transform: uppercase;
+}
+
+.product-commonZone{
+    width: 100%;
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.product-commonZone .countZone{
+    padding: 15px 15px 15px 15.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--gray);
+    background: var(--gray);
+}
+
+.product-commonZone .countZone input{
+    border: none;
+    width: 50px;
+    text-align: center;
+    outline: none;
+    color: #000;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+.product-commonZone .countZone span{
+    color: rgba(0, 0, 0, 0.25);
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.product-commonZone .countZone .decrease, .product-commonZone .countZone .increase{
+    color: rgba(0, 0, 0, 0.25);
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.product-commonZone .countZone .decrease:hover, .product-commonZone .countZone .increase:hover{
+    color: var(--orange);
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.product-middleSide{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 125px;
+}
+.product-middleSide .feature-side{
+    width: 57%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+.product-middleSide .feature-side h4{
+    color: var(--black);
+    font-family: "Manrope";
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.125em;
+    letter-spacing: 1.143px;
+    text-transform: uppercase;
+}
+.product-middleSide .feature-side p{
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Manrope";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.66em;
+}
+.product-middleSide .boxContains-side{
+    width: 31%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+.product-middleSide .boxContains-side ul{
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.product-middleSide .boxContains-side ul li{
+    width: 100%;
+    display: flex;
+    gap: 24px;
+}
+.product-middleSide .boxContains-side h4{
+    color: var(--black);
+    font-family: "Manrope";
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.125em;
+    letter-spacing: 1.143px;
+    text-transform: uppercase;
+}
+.product-middleSide .boxContains-side ul li p{
+    color: #D87D4A;
+    font-family: "Manrope";
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.66em;
+}
+.product-middleSide .boxContains-side ul li span{
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Manrope";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.66em;
+}
+
+.product-footerSide{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    gap: 32px;
+}
+.product-footerSide img{
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    display: block;
+}
+
+.other-products{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    /* padding-bottom: 120px; */
+}
+.other-products h6{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
+    font-family: "Manrope";
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.125em;
+    letter-spacing: 1.143px;
+    text-transform: uppercase;
+}
+.other-products .list-zone{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+.other-products .list-zone li{
+    border-radius: 8px;
+    /* width: 31%; */
+    height: 471px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* gap: 35px; */
+}
+.other-products .list-zone li .list-item-imgZone{
+   width:100%;
+   height: 318px;
+}
+.other-products .list-zone li .list-item-imgZone img{
+    width: 100%;
+    height: 100%;
+}
