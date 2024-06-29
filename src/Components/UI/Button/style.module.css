@@ -12,7 +12,8 @@
     border: 1px solid var(--black);
 }
 .btn-link:hover{
-    background: var(--black);
+    background: #4C4C4C;
+    border: transparent;
 }
 .btn-link2{
     width: auto;
@@ -59,6 +60,7 @@
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+    height: 48px;
 }
 .btn-primary-link:hover{
     background: #FBAF85;

@@ -1,16 +1,21 @@
 .zone{
     display: flex;
     flex-direction: column;
-    /* position: relative; */
     background-color: #fff;
     padding-top: 79px;
+    position: relative;
+    min-height: 600px;
 }
-
+.spinnerAnimate{
+    position: absolute;
+    top: 120px;
+    left: 48%;
+}
 .product-zone{
     padding: 89px 165px 0px;
 }
 
-.product-zone .goBackTag span{
+.product-zone .goBackTag .navigateSpan{
     color: rgba(0,0,0,0.5);
     font-family: "Manrope";
     font-size: 15px;
@@ -26,8 +31,6 @@
 }
 
 .product-headerSide{
-    /* position: relative;
-    z-index: 1; */
     padding-top: 56px;
     width: 100%;
     display: flex;
@@ -37,21 +40,20 @@
 }
 .product-headerSide .product-imgSide{
     width: 55%;
+    max-width: 740px;
     border-radius: 8px;
     background: var(--gray);
+}
+
+.product-headerSide .product-imgSide .desktopImg{
+    width: 100%;
     display: block;
 }
-.activeZone .product-headerSide .product-changeImgSide{
-    width: 55%;
-    border-radius: 8px;
-    background: rgba(0,0,0,0.4);
-    display: block;
-} 
-.activeZone .product-headerSide .product-changeImgSide img{
-    width: 100%;
-} 
-.product-headerSide .product-imgSide img{
-    width: 100%;
+.product-headerSide .product-imgSide .tabletImg{
+    display: none;
+}
+.product-headerSide .product-imgSide .mobileImg{
+    display: none;
 }
 .product-headerSide .product-textSide{
     width: 45%;
@@ -77,7 +79,7 @@
     letter-spacing: 1.429px;
     text-transform: uppercase;
 }
-.product-headerSide .product-textSide span{
+.product-headerSide .product-textSide .descriptionSpan{
     width: 100%;
     color:rgba(0, 0, 0, 0.5);
     font-family: "Manrope";
@@ -102,6 +104,9 @@
     gap: 16px;
 }
 .product-commonZone .countZone{
+    flex-shrink: 0;
+    min-width: 155px;
+    max-width: 155px;
     padding: 15px 15px 15px 15.5px;
     display: flex;
     justify-content: space-between;
@@ -109,11 +114,11 @@
     gap: 20px;
     border: 1px solid var(--gray);
     background: var(--gray);
+    height: 48px;
 }
 
 .product-commonZone .countZone input{
     border: none;
-    width: 50px;
     text-align: center;
     outline: none;
     color: #000;
@@ -124,7 +129,9 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     background-color: transparent;
+    overflow: hidden;
 }
+
 .product-commonZone .countZone span{
     color: rgba(0, 0, 0, 0.25);
     text-align: center;
@@ -138,7 +145,7 @@
     color: rgba(0, 0, 0, 0.25);
     text-align: center;
     font-family: "Manrope";
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -148,11 +155,14 @@
     color: var(--orange);
     text-align: center;
     font-family: "Manrope";
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
+}
+.product-commonZone .buttonZone{
+    min-width:160px;
 }
 
 .product-middleSide{
@@ -236,6 +246,11 @@
     align-items: center ;
     gap: 32px;
 }
+.productFlexSide{
+    display: flex;
+    flex-direction: column;
+    gap: 23.9px;
+}
 .product-footerSide img{
     width: 100%;
     border-radius: 10px;
@@ -248,7 +263,17 @@
     display: flex;
     flex-direction: column;
     gap: 64px;
-    /* padding-bottom: 120px; */
+}
+.commonZone{
+    width: 100%;
+    height: auto;
+    background:var(--white);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding-top: 40px;
 }
 .other-products h6{
     display: flex;
@@ -272,8 +297,6 @@
 }
 .other-products .list-zone li{
     border-radius: 8px;
-    /* width: 31%; */
-    height: 471px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -282,9 +305,212 @@
 }
 .other-products .list-zone li .list-item-imgZone{
    width:100%;
-   height: 318px;
 }
-.other-products .list-zone li .list-item-imgZone img{
+.other-products .list-zone li .list-item-imgZone .desktopImg{
     width: 100%;
     height: 100%;
+    display: block;
+}
+.other-products .list-zone li .list-item-imgZone .mobileImg{
+    display: none;
+}
+
+@media (min-width:1500px) {
+    .product-headerSide .product-textSide .descriptionSpan{
+        max-width: 500px;
+    }
+    .product-headerSide .product-textSide h4{
+        max-width: 500px;
+    }
+}
+
+@media (max-width:1180px) {
+    .product-zone{
+        padding: 100px 39px 0px;
+    }
+}
+
+@media (max-width:1080px) {
+    .product-zone{
+        padding: 80px 39px 0px;
+    }
+    .product-details{
+        gap: 120px;
+    }
+    .other-products{
+        gap: 56px;
+    }
+    .other-products .list-zone{
+        gap: 5px;
+    }
+    .product-headerSide{
+        padding-top: 24px;
+        gap: 70px;
+    }
+}
+
+@media (max-width:992px) {
+    .product-headerSide .product-imgSide .tabletImg{
+        display: block;
+    }
+    .product-headerSide .product-imgSide .desktopImg{
+        display: none;
+    }
+    .product-headerSide .product-textSide h4{
+        font-size: 28px;
+        line-height: 32px;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width:892px) {
+    .other-products h6{
+        font-size: 24px;
+        letter-spacing: 1.714px;
+    }
+    .product-commonZone{
+        padding-top: 32px;
+    }
+    .product-footerSide {
+        gap: 16px;
+    }
+    .productFlexSide{
+        gap: 16px;
+    }
+}
+
+@media (max-width:780px) {
+    .product-headerSide .product-imgSide .mobileImg{
+        display: block;
+    }
+    .product-headerSide .product-imgSide .tabletImg{
+        display: none;
+    }
+    .product-headerSide{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+    .product-details{
+        gap: 88px;
+    }
+    .product-headerSide .product-imgSide{
+        width: 100%;
+    }
+    .product-headerSide .product-imgSide .mobileImg{
+        width: 100%;
+    }
+    .product-headerSide .product-textSide{
+        width: 100%;
+        gap: 24px;
+    }
+    .product-headerSide .product-textSide h4{
+        width: 327px;
+    }
+    .product-headerSide .product-textSide p{
+        width: 100%;
+    }
+    .product-headerSide .product-textSide .descriptionSpan{
+        width: 100%;
+    }
+    .product-details{
+        width: 100%;
+    }
+    .product-commonZone{
+        width: 100%;
+        display: flex;
+        /* justify-content: space-between; */
+        align-items: center;
+    }
+    .product-commonZone.countZone{
+        width: 50%;
+    }
+    .product-commonZone .buttonZone{
+        width: 50%;
+    }
+    .product-middleSide{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 120px;
+    }
+    .product-middleSide .feature-side{
+        width: 100%;
+    }
+    .product-middleSide .feature-side h4{
+        width: 100%;
+    }
+    .product-middleSide .boxContains-side{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+ 
+@media  (max-width:640px){
+    .product-zone{
+        padding: 65px 24px 0px;
+    }
+    .other-products .list-zone{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 56px;
+        width: 100%;
+    }
+    .other-products .list-zone li {
+        width: 100%;
+    }
+    .product-details{
+        gap: 88px;
+    }
+    .other-products .list-zone li .list-item-imgZone .desktopImg{
+        display: none;
+    }
+    .other-products .list-zone li .list-item-imgZone .mobileImg{
+        display: block;
+    }
+    .other-products{
+        gap: 40px;
+    }
+    .product-footerSide {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 16px;
+    }
+    .productFlexSide{
+        width: 100%;
+    }
+}
+
+@media (max-width:480px) {
+    .product-middleSide{
+        gap: 75px;
+    }
+    .product-middleSide .boxContains-side{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .spinnerAnimate{
+        top: 85px;
+    }
+}
+@media (max-width:380px) {
+    .product-commonZone{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

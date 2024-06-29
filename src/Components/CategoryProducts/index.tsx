@@ -6,6 +6,7 @@ import { filterProductsByName } from "../../Store/Products";
 import { Spinner } from 'react-bootstrap';
 import ProductBoxes from '../ProductBoxes';
 import Button from '../UI/Button';
+
 const CategoryProducts =() =>{
     const[loading,setLoading] = useState(false)
     const{data} = useAppselectore(state => state.products)
@@ -44,7 +45,9 @@ const CategoryProducts =() =>{
                                 <li key={item.id}>
                                     <div className={style['category-container']}>
                                         <div className={style['container-left-side']} >
-                                            <img src={`http://${window.location.host}/${item.categoryImage.desktop}`} alt="" style={{width:"100%",height:'100%'}}/>
+                                            <img src={`http://${window.location.host}/${item.categoryImage.desktop}`} alt=""  className={style.desktopImg}/>
+                                            <img src={`http://${window.location.host}/${item.categoryImage.tablet}`} alt=""  className={style.tabletImg}/>
+                                            <img src={`http://${window.location.host}/${item.categoryImage.mobile}`} alt=""  className={style.mobileImg}/>
                                         </div>
                                         <div className={style['container-right-side']}>
                                             <div className={style['container-details']}>

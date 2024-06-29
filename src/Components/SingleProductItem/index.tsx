@@ -40,14 +40,14 @@ const SingleProductItem = ({ toggleCart }: Props) => {
     return (
         <>
             {status==='loading' && (
-                <Spinner animation="border" role="status" style={{ position: 'absolute', top: '15%', left: '165px' }}>
+                <Spinner animation="border" role="status" className={style.spinnerAnimate}>
                     <span className="visually-hidden"></span>
                 </Spinner>
             )}
             {status==='loaded' && singleData && (
                 <div className={style['product-zone']}>
                     <div className={style.goBackTag}>
-                        <span onClick={() => navigate(`/products/category/${singleData.category}`)}>Go Back</span>
+                        <span onClick={() => navigate(`/products/category/${singleData.category}`)} className={style.navigateSpan}>Go Back</span>
                     </div>
                     <div className={style["product-details"]}>
                         <ProductHeaderSide
@@ -67,7 +67,7 @@ const SingleProductItem = ({ toggleCart }: Props) => {
                             includes={singleData.includes}
                         />
                         <div className={style['product-footerSide']}>
-                            <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+                            <div className={style.productFlexSide}>
                                 <img src={`http://${window.location.host}/${singleData?.gallery.first.desktop}`} alt="" />
                                 <img src={`http://${window.location.host}/${singleData?.gallery.second.desktop}`} alt="" />
                             </div>

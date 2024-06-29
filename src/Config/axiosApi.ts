@@ -8,11 +8,54 @@ const api = axios.create({
     timeoutErrorMessage:"Check Internet Connection"
 })
 
-api.interceptors.request.use((req) =>{
-    // req.headers["Accept"] = "application/json"
-    // req.headers["Content-Type"] ="application/json"
-    // req.headers["Authorization"] = `Bearer`
-    return req
-})
+api.interceptors.request.use(
+    ((req) =>{
+        // req.headers["Accept"] = "application/json"
+        // req.headers["Content-Type"] ="application/json"
+        // req.headers["Authorization"] = `Bearer`
+        return req
+    }),
+    ((error) =>{
+        console.log(error)
+        return Promise.reject(error)
+    })
+)
+
+api.interceptors.response.use(
+    (response) => {
+        console.log("Response:", response);
+        return response;
+    },
+    (error) => {
+        if (error.response) {
+            console.error("Response error:", error.response.data);
+            switch (error.response.status) {
+                case 400:
+                    console.error("Bad Request");
+                    break;
+                case 401:
+                    console.error("Unauthorized - Redirecting to login");
+                    break;
+                case 403:
+                    console.error("Forbidden");
+                    break;
+                case 404:
+                    console.error("Not Found");
+                    break;
+                case 500:
+                    console.error("Internal Server Error");
+                    break;
+                default:
+                    console.error("Unhandled Error:", error.response.status);
+            }
+        } else if (error.request) {
+            console.error("No response received:", error.request);
+        } else {
+            console.error("Error:", error.message);
+        }
+        return Promise.reject(error);
+    }
+);
+
 
 export default api

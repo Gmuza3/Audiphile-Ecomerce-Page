@@ -17,7 +17,7 @@
 
 .spinnerWrapper {
     position: absolute;
-    top: 13%;
+    top: 125px;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
@@ -52,7 +52,9 @@
     align-items: flex-start;
     gap: 16px;
 }
-.checkout-leftSide span {
+.checkout-leftSide .checkout-billingDetails .mainSpan,
+.checkout-leftSide .checkout-shippingInfo .mainSpan,
+.checkout-leftSide .checkout-paymentDetails .mainSpan{
     color: var(--orange);
     font-family: "Manrope";
     font-size: 13px;
@@ -62,6 +64,7 @@
     letter-spacing: 0.929px;
     text-transform: uppercase;
 }
+
 .checkout-leftSide .checkout-billingDetails .flex-input{
     width: 100%;
     display: flex;
@@ -75,6 +78,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
 }
 
 .checkout-leftSide .checkout-paymentDetails .payment-method{
@@ -85,10 +89,40 @@
 }
 .checkout-leftSide .checkout-paymentDetails .payment-flex{
     min-width: 40%;
+    padding-top: 17px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
+}
+.checkout-leftContainer-footer{
+    padding-top: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+.checkout-leftContainer-footer .footer-flex{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+.checkout-leftContainer-footer .logoSide{
+    min-width: 20%;
+    flex-shrink: 0;
+}
+.checkout-leftContainer-footer .textSide{
+    max-width: 600px;
+}
+.checkout-leftContainer-footer .textSide .footerSpan{
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Manrope";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.66em;
 }
 .checkout-container .checkout-rightSide{
     width: 35%;
@@ -112,7 +146,7 @@
     letter-spacing: 1.286px;
     text-transform: uppercase;
 }
-.checkout-rightSide .checkoutList ul{
+.checkout-rightSide .checkoutList .list{
     width: 100%;
     list-style-type: none;
     display: flex;
@@ -121,33 +155,41 @@
     gap: 24px;
 }
 
-.checkout-rightSide .checkoutList ul li{
+.checkout-rightSide .checkoutList .list .checkoutListItem{
     padding-top:6px ;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
 }
-.checkoutList ul li .checkout-productDetails{
+.checkoutList .list .checkoutListItem .checkout-productDetails{
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 16px;
     width: 100%;
 }
-.checkoutList ul li .checkout-productDetails img{
+
+.checkoutList .list .checkoutListItem img{
     width: 64px;
     height: 64px;
     flex-shrink: 0;
     border-radius: 8px;
     background: var(--gray);
+    flex-shrink: 0;
 }
-.checkoutList ul li .checkout-productDetails .checkout-item-price{
+.checkoutList .list .checkoutListItem .checkout-productDetails{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.checkoutList .list .checkoutListItem .checkout-productDetails .checkout-item-price{
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-.checkoutList ul li .checkout-productDetails .checkout-item-price h6{
+.checkoutList .list .checkoutListItem .checkout-productDetails .checkout-item-price h6{
     color: var(--black);
     font-family: "Manrope";
     font-size: 15px;
@@ -155,14 +197,15 @@
     line-height:1.66em;
     margin: 0;
 }
-.checkoutList ul li .checkout-productDetails .checkout-item-price span{
+.checkoutList .list .checkoutListItem .checkout-productDetails .checkout-item-price span{
     color: rgba(0, 0, 0, 0.5);
     font-family: "Manrope";
     font-size: 14px;
     font-weight: 700;
     line-height:25px;
 }
-.checkoutList ul li .checkout-productsCount{
+
+.checkoutList .list .checkoutListItem .checkout-productsCount{
     color: rgba(0, 0, 0, 0.5);
     text-align: right;
     font-family: "Manrope";
@@ -199,6 +242,15 @@
     font-weight: 700;
     text-transform: uppercase;
 }
+.cartPriceCalculate div .grandParagraph{
+    color: #D87D4A;
+    text-align: right;
+    font-family: "Manrope";
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .orderModal{
     background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
@@ -207,7 +259,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 58%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 3;
@@ -250,26 +302,60 @@
 
 }
 .order-container-wrapper .orderList{
+    width: 60%;
     list-style-type: none;
 }
 .order-container-wrapper .orderList .order-listItem{
-    width: 60%;
     background: var(--gray);
     padding: 24px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+.order-container-wrapper .orderList .order-Items{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top:1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 12px;
+}
+.order-container-wrapper .orderList .order-Items p{
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Manrope";
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.214px;
 }
 .order-container-wrapper .orderList .order-listItem .order-leftSide{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-shrink: 0;
+    padding-bottom: 12px;
+    /* border-bottom:1px solid rgba(0, 0, 0, 0.08) ; */
 }
-.order-imgZone{
+.order-leftSide-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+}
+.order-leftSide-wrapper .order-imgZone{
     width: 50px;
     height: 50px;
     flex-shrink: 0;
 }
-.order-imgZone img{
+.order-leftSide-wrapper .order-imgZone img{
+    display: block;
     width: 100%;
+    height: 100%;
 }
 .order-leftSide-text{
     display: flex;
@@ -291,6 +377,7 @@
     font-weight: 700;
     line-height: 1.785em;
 }
+
 .orderCount span{
     color: rgba(0, 0, 0, 0.5);
     text-align: right;
@@ -298,4 +385,138 @@
     font-size: 15px;
     font-weight: 700;
     line-height: 1.66em;
+}
+.order-container-wrapper .order-rightSide{
+    width: 40%;
+    border-radius: 0px 8px 8px 0px;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+.order-container-wrapper .order-rightSide .order-priceSide{
+    padding-left: 32px;
+    padding-bottom: 40px;
+}
+.order-container-wrapper .order-rightSide .order-priceSide span{
+    color: rgba(255,255,255,0.5);
+    font-family: 'Manrope';
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.667em;
+}
+
+.order-container-wrapper .order-rightSide .order-priceSide p{
+    color: #FFF;
+    /* text-align: right; */
+    font-family: "Manrope";
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+@media (max-width:1290px) {
+    .container{
+        padding: 160px 39px 116px;
+    }
+}
+@media (max-width:1080px) {
+    .checkout-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .checkout-container .checkout-leftSide{
+        width: 100%;
+    }
+    .checkout-container .checkout-rightSide{
+        width: 100%;
+    }
+}
+@media (max-width:740px) {
+    .container{
+        padding:130px 24px 97px;
+    }
+    .checkout-container .checkout-leftSide{
+       padding: 30px 24px;
+    }
+    .checkout-container .checkout-rightSide{
+       padding: 32px 24px;
+    }
+    .checkout-leftSide .checkout-billingDetails,
+    .checkout-leftSide .checkout-shippingInfo,
+    .checkout-leftSide .checkout-paymentDetails{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .checkout-leftSide .checkout-billingDetails .flex-input,
+    .checkout-leftSide .checkout-shippingInfo .flex-input,
+    .checkout-leftSide .checkout-paymentDetails .payment-method{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .order-container-wrapper .orderList .order-Items{
+        margin-right: 60px;
+    }
+    .order-container-wrapper .order-rightSide .order-priceSide{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    /* .spinnerWrapper{
+        top: 9%;
+    } */
+}
+
+@media (max-width:590px) {
+    .orderModal{
+        top: 54%;
+        padding: 0px 24px;
+    }
+    .orderModal .orderModal-zone{
+        gap: 23px;
+        padding: 32px;
+    }
+    .order-container-wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .order-container-wrapper .orderList{
+        width: 100%;
+    }
+    .order-container-wrapper .order-rightSide{
+        width: 100%;
+    }
+    .order-container-wrapper .order-rightSide  .order-priceSide{
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 19px;
+    }
+    .orderModal .orderModal-zone .orderTextZone h3{
+        font-size: 24px;
+        line-height: 28px; 
+        letter-spacing: 0.857px;
+    }
+    .checkout-leftContainer-footer .footer-flex{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .spinnerWrapper {
+        top: 95px;
+    }
+}
+
+@media (max-height:800px) {
+    
 }

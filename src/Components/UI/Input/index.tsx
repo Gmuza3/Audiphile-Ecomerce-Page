@@ -1,3 +1,4 @@
+import React, { ChangeEvent } from 'react';
 import style from './style.module.css';
 
 type Props = {
@@ -9,16 +10,38 @@ type Props = {
     isRequire?: boolean,
     inputName?: string,
     name: string,
-    isChecked?:false
+    isChecked?: boolean,
+    value?: string | number,
+    handleChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input = ({ label,isChecked, name, placeHolder, type, id, isError = false, isRequire = false, inputName }: Props) => {
+const Input = ({
+    label,
+    isChecked,
+    name,
+    placeHolder,
+    type = 'text',
+    id,
+    isError = false,
+    isRequire = false,
+    inputName,
+    value,
+    handleChange
+}: Props) => {
     const inputClass = `${style[inputName as string]} ${isError ? style.inputError : ''}`;
 
     if (type === 'radio') {
         return (
             <div className={style.radioInput}>
-                <input type={type} checked={isChecked} name={name} id={id} className={style.radioButton} />
+                <input
+                    type={type}
+                    checked={isChecked}
+                    name={name}
+                    id={id}
+                    className={style.radioButton}
+                    value={value}
+                    onChange={handleChange}
+                />
                 <label htmlFor={id} className={style.radioLabel}>{label}</label>
             </div>
         );
@@ -36,6 +59,8 @@ const Input = ({ label,isChecked, name, placeHolder, type, id, isError = false, 
                 id={id}
                 required={isRequire}
                 className={inputClass}
+                value={value}
+                onChange={handleChange}
             />
         </div>
     );

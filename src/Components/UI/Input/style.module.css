@@ -1,6 +1,7 @@
 .radioInput {
     width: 100%;
-    padding: 16px 52px 19px 52px;
+    max-width: 309px;
+    padding: 16px 21px 19px 21px;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -13,19 +14,22 @@
 }
 
 .radioInput input {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     flex-shrink: 0;
 }
 
-input[type="radio"] {
+.radioInput:has([type="radio"]:checked) {
     accent-color: var(--orange);
+    border-radius: 8px;
+    border: 1px solid var(--orange);
+    background: var(--white);
 }
 
 .radioInput label {
     color: var(--black);
     font-family: "Manrope";
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: -0.25px;
 }
@@ -34,11 +38,11 @@ input[type="radio"] {
     border: 1px solid var(--orange);
     background: #FFF;
 } */
-.radioInput:hover{
+/* .radioInput:hover{
     border-radius: 8px;
     border: 1px solid var(--orange);
     background: var(--white);
-}
+} */
 
 .inputWrapper {
     width: 100%;
@@ -62,7 +66,6 @@ input[type="radio"] {
 }
 
 .input {
-    width: 309px; 
     height: 56px;
     padding: 18px 24px;
     border-radius: 8px;
@@ -87,6 +90,7 @@ input[type="radio"] {
     border-radius: 8px;
     border: 2px solid #CD2C2C;
     background: #FFF;
+    border-color: red; 
 }
 .isError{
     color: #CD2C2C;
@@ -95,8 +99,12 @@ input[type="radio"] {
     font-weight: 700;
     letter-spacing: -0.214px;
 }
-.inputError {
-    border-color: red; 
+.labelError{
+    color: #CD2C2C;
+    font-family: "Manrope";
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.214px;
 }
 .textError{
     color: #CD2C2C;
@@ -120,4 +128,17 @@ input[type="radio"] {
     font-size: 14px;
     font-weight: 700;
     letter-spacing: -0.25px;
+}
+
+@media (max-width:540px) {
+    .input,.input-100w,.radioInput {
+        min-width: 350px;
+        max-width: 350px;
+    }
+}
+@media (max-width:445px) {
+    .input,.input-100w,.radioInput {
+        min-width: 250px;
+        max-width: 250px;
+    }
 }

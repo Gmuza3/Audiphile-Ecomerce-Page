@@ -17,17 +17,21 @@ const ProductMiddleSide =(props:Props) =>{
                 ))}
             </div>
             <div className={style["boxContains-side"]}>
-                <h4>in the box</h4>
-                <ul>
-                    {includes.map((item,index) =>{
-                        return(
-                            <li key={index}>
-                                <p>{item.quantity}x</p>
-                                <span>{item.item}</span>
-                            </li>
-                        )
-                    })}
-                </ul>
+                <div>
+                     <h4>in the box</h4>
+                </div>
+               <div>
+                    <ul>
+                        {includes.map((item,index) =>{
+                            return(
+                                <li key={index}>
+                                    <p>{item.quantity}x</p>
+                                    <span>{item.item}</span>
+                                </li>
+                            )
+                        })}
+                    </ul>
+               </div>
             </div>
         </div>
     )

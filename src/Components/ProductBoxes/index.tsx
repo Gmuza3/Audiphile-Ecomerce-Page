@@ -4,7 +4,11 @@ import speakersImg from '../../../public/assets/shared/desktop/image-category-th
 import earphonesImg from '../../../public/assets/shared/desktop/image-category-thumbnail-earphones.png'
 import Button from '../UI/Button'
 
-const ProductBoxes =() =>{
+type Props ={
+    closeModal?:() => void
+}
+
+const ProductBoxes =({closeModal}:Props) =>{
     return(
         <div className={style['main-product-box']}>
             <div className={style['product-box']}>
@@ -19,6 +23,7 @@ const ProductBoxes =() =>{
                                     isLink={true}
                                     path='/products/category/headphones'
                                     buttonName={'categoryLink'}
+                                    handleClick={closeModal}
                                 />
                                 <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
                             </div>
@@ -36,6 +41,7 @@ const ProductBoxes =() =>{
                                     isLink={true}
                                     path='/products/category/speakers'
                                     buttonName={'categoryLink'}
+                                    handleClick={closeModal}
                                 />
                                 <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
                             </div>
@@ -53,6 +59,7 @@ const ProductBoxes =() =>{
                                     isLink={true}
                                     path='/products/category/earphones'
                                     buttonName={'categoryLink'}
+                                    handleClick={closeModal}
                                 />
                                 <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
                             </div>

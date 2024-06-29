@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useAppDispatch, useAppselectore } from "../../Store";
-import { changeCartCount, handleTotalPirce, removeAll, removeItem } from "../../Store/Cart";
+import { changeCartCount, removeAll, removeItem } from "../../Store/Cart";
 import style from './style.module.css'
 import Button from "../UI/Button";
 
@@ -47,15 +47,10 @@ const Cart = ({closeModal}:Props) => {
         console.log("sxva",cartData)
     },[cartData])
 
-
     if(total === undefined){
         <div><p>not foudnd information</p></div>
     }
-    useEffect(() =>{
-        if(cartData.length <= 0){
-            closeModal()
-        }
-    },[cartData.length, closeModal])
+    
     return (
         <div className={style['cart-container']}>
                 <div className={style['cart-containerHead']}>
@@ -78,7 +73,7 @@ const Cart = ({closeModal}:Props) => {
                             <div className={style['cart-productDetails']}>
                                 <img src={`http://${window.location.host}/${item.image.desktop}`} alt={item.name} />
                                 <div className={style['cart-item-price']}>
-                                    <h6>{item.name}</h6>
+                                    <h6>{item.name.split(' ').slice(0,-1).join(" ")}</h6>
                                     <span>$ {item.price >=1000? (item.price/1000).toFixed(3).replace(".",',') : item.price}</span>
                                 </div>
                             </div>
@@ -100,7 +95,7 @@ const Cart = ({closeModal}:Props) => {
                     <Button
                         text={"Checkout"}
                         isLink={true}
-                        path='/product/checkout'
+                        path='/products/checkout'
                         buttonName={'active'}
                     />
                 </div>

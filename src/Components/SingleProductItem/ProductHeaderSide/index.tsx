@@ -22,7 +22,6 @@ type Props = {
 }
 
 const ProductHeaderSide = ({
-    id, 
     image, 
     name, 
     description, 
@@ -46,12 +45,14 @@ const ProductHeaderSide = ({
     return (
         <div className={style["product-headerSide"]}>
             <div className={style["product-imgSide"]}>
-                <img src={`http://${window.location.host}/${image.desktop}`} alt={name} />
+                <img src={`http://${window.location.host}/${image.desktop}`} alt={name}  className={style.desktopImg}/>
+                <img src={`http://${window.location.host}/${image.tablet}`} alt={name} className={style.tabletImg}/>
+                <img src={`http://${window.location.host}/${image.mobile}`} alt={name} className={style.mobileImg}/>      
             </div>
             <div className={style["product-textSide"]}>
                 {newProduct && (<p>new product</p>)}
                 <h4>{name}</h4>
-                <span>{description}</span>
+                <span className={style.descriptionSpan}>{description}</span>
                 <span className={style.priceLine}>${price >=1000? (price/1000).toFixed(3).replace(".",',') : price}</span>
                 <div className={style["product-commonZone"]}>
                     <div className={style.countZone}>

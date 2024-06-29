@@ -5,7 +5,6 @@ import Button from '../UI/Button'
 import CheckoutRightSide from './Checkout-RightSide'
 import CheckoutLeftSide from './Checkout-leftSide'
 import { Spinner } from 'react-bootstrap'
-import OrderModal from '../OrderModal'
 
 const CheckoutItems = () => {
     const {cartData} = useAppselectore(state => state.cart);
@@ -40,6 +39,7 @@ const CheckoutItems = () => {
         });
         console.log("sxva",cartData)
     },[cartData])
+    console.log(cartData)
     return (
         <div className={style['container']}>
             {loading  && (
@@ -55,7 +55,7 @@ const CheckoutItems = () => {
                     isLink={true}
                     path='/'
                     buttonName={'active-gray'}
-                    />
+                />
             </div>
             <div className={style['checkout-container']}>
                 <CheckoutLeftSide/>

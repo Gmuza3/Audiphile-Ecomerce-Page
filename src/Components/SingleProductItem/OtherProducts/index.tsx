@@ -19,9 +19,11 @@ const OtherProducts =(props:Props) =>{
                     return(
                         <li key={index}>
                             <div className={style["list-item-imgZone"]}>
-                                <img src={`http://${window.location.host}/${item.image.desktop}`} alt="" />
+                                <img src={`http://${window.location.host}/${item.image.desktop}`} alt="" className={style['desktopImg']} />
+                                <img src={`http://${window.location.host}/${item.image.mobile}`} alt="" className={style['mobileImg']} />
+                            
                             </div>
-                            <div style={{display:'flex',flexDirection:"column",justifyContent:"center",alignItems:"center",gap:'32px',background:"#fff",width:"100%",height:'auto',paddingTop:"40px"}}>
+                            <div className={style.commonZone}>
                                 <div className={style['list-item-nameZone']}>
                                     <h6>{item.name}</h6>
                                 </div>

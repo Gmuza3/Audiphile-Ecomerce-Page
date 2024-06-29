@@ -9,7 +9,7 @@ body a{
   text-decoration: none;
 }
 body h4,h2,h3,h5,h6,h1{
-  margin: 0;
+  margin: 0px;
 }
 body p{
   margin: 0;
@@ -18,10 +18,7 @@ body ul,li{
   padding: 0;
   margin: 0;
 }
-/* body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-} */
+img{
+  max-width: 100%;
+}
 
