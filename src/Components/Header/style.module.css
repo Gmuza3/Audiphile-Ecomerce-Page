@@ -58,6 +58,12 @@
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+.header-cart-zone{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
 
 @media (max-width:1180px) {
     .header-zone{

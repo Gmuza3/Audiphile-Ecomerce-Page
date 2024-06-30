@@ -153,11 +153,11 @@
     }
 
     .main-footer-firstBox .first-box-leftSide .speaker-img {
-        width: 215px;
+        width: 255px;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: 52px;
+        top: 26px;
     }
     .main-footer-firstBox .first-box-leftSide .circle-img {
         min-width: 100%;
@@ -181,6 +181,15 @@
     }
     .main-footer-divideBox{
         padding-bottom: 70px;
+    }
+}
+@media (max-width:840px) {
+    .main-footer-firstBox .first-box-leftSide .speaker-img {
+        width: 215px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 36px;
     }
 }
 @media (max-width:792px) {
@@ -262,7 +271,6 @@
 }
 @media (max-width:440px) {
     .main-footer {
-        /* padding: 96px 15px 0px; */
         padding: 85px 15px 0px;
     }
     .main-footer-secondtBox .second-box-leftSide{
