@@ -26,7 +26,6 @@ const CategoryProducts =() =>{
             []
         }
     },[dispatch, params.name])
-    console.log(data)
     return(
         <>
             <div className={style['category-main-head']}>

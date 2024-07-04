@@ -15,7 +15,7 @@ const Cart = ({closeModal}:Props) => {
     const[total,setTotal]=useState<string>();
     const navigate = useNavigate()
     
-    const handleDecrease2 = useCallback((itemId: string) => {
+    const handleDecrease = useCallback((itemId: string) => {
         const item = cartData.find(item => item.id === itemId);
         if (item) {
             const newCount = ((item.count || 0) - 1);
@@ -27,7 +27,7 @@ const Cart = ({closeModal}:Props) => {
         }
     }, [cartData, dispatch]);
 
-    const handleIncrease2 = useCallback((itemId:string) => {
+    const handleIncrease = useCallback((itemId:string) => {
         const item = cartData.find(item => item.id === itemId);
         if (item) {
             const newCount = (item.count || 0) + 1;
@@ -79,9 +79,9 @@ const Cart = ({closeModal}:Props) => {
                             </div>
                             <div className={style["product-commonZone"]}>
                                 <div className={style.countZone}>
-                                    <span className={style.decrease}  onClick={() => handleDecrease2(item.id)}>-</span>
+                                    <span className={style.decrease}  onClick={() => handleDecrease(item.id)}>-</span>
                                     <input type="number" value={item.count} readOnly />
-                                    <span className={style.increase}  onClick={() => handleIncrease2(item.id)}>+</span>
+                                    <span className={style.increase}  onClick={() => handleIncrease(item.id)}>+</span>
                                 </div>
                             </div>
                         </li>

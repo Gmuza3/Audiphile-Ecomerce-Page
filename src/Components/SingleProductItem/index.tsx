@@ -24,7 +24,6 @@ const SingleProductItem = ({ toggleCart }: Props) => {
     }, [singleData]);
 
     const handleDecrease = () => {
-        // setInputValue(prevState => Math.max(prevState - 1, 0));
         setInputValue(prevState => {
             while(prevState > 0){
                 return prevState -1
