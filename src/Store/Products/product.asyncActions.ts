@@ -5,7 +5,7 @@ export const getData = createAsyncThunk('products/getData',async(_,thunkApi) =>{
     try{
         const response = await api.get('/products');
         console.log(response)
-        // await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         
         if (response.status !== 200) {
             console.log(response.status)

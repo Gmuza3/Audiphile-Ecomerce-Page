@@ -15,18 +15,17 @@ const Cart = ({closeModal}:Props) => {
     const[total,setTotal]=useState<string>();
     const navigate = useNavigate()
     
-    const handleDecrease2 = useCallback((itemId:string) => {
+    const handleDecrease2 = useCallback((itemId: string) => {
         const item = cartData.find(item => item.id === itemId);
         if (item) {
-            if(item.count  as number <= 0){
-                dispatch(removeItem(itemId))
-            }
-            else{
-                const newCount = ((item.count || 0) - 1);
+            const newCount = ((item.count || 0) - 1);
+            if (newCount < 1) {
+                dispatch(removeItem(itemId));
+            } else {
                 dispatch(changeCartCount({ data: item, newCount }));
             }
         }
-    },[cartData, dispatch]);
+    }, [cartData, dispatch]);
 
     const handleIncrease2 = useCallback((itemId:string) => {
         const item = cartData.find(item => item.id === itemId);
@@ -46,7 +45,6 @@ const Cart = ({closeModal}:Props) => {
                 ? (totalAmount / 1000).toFixed(3).replace('.', ',')
                 : totalAmount.toString();
         })
-        console.log("sxva",cartData)
     },[cartData])
 
     if(total === undefined){
@@ -61,7 +59,7 @@ const Cart = ({closeModal}:Props) => {
                         text={"Remove all"}
                         handleClick={() => {
                             dispatch(removeAll());
-                            if(cartData.length <=0){
+                            if(cartData.length < 1){
                                 closeModal();
                             }
                         }

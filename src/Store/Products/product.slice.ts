@@ -34,13 +34,11 @@ const ProductsSlice = createSlice({
             state.error = undefined
         }),
         build.addCase(getData.fulfilled,(state,action) =>{
-            setTimeout(() =>{
-                state.status ='loaded';
-                if(action.payload){
-                    state.data =action.payload;
-                    state.rawData =action.payload
-                }
-            },1000)
+            state.status ='loaded';
+            if(action.payload){
+                state.data =action.payload;
+                state.rawData =action.payload
+            }
         }),
         build.addCase(getData.rejected,(state,action) =>{
             state.status="failed";

@@ -3,14 +3,10 @@ import { Products } from "../../Static/type";
 
 type InitialState = {
     cartData:Products[],
-    status: "idle" | "loading" | "loaded" | "failed",
-    error: string | undefined
 }
 
 const initialState: InitialState = {
     cartData:[],
-    status: "idle",
-    error: undefined
 }
 
 const CartSlice = createSlice({
