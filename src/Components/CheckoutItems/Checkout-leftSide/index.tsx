@@ -11,12 +11,7 @@ type Props = {
 };
 
 const CheckoutLeftSide = ({ register, errors }: Props) => {
-  const [paymentOption, setPaymentOption] = useState('');
-
-  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPaymentOption(e.target.value);
-  };
-  console.log(errors)
+  const [paymentOption, setPaymentOption] = useState('emoney');
   return (
     <div className={style['checkout-leftSide']}>
       <h3>CHECKOUT</h3>
@@ -66,17 +61,14 @@ const CheckoutLeftSide = ({ register, errors }: Props) => {
             label="Phone Number"
             id="phoneId"
             placeHolder="+1 202-555-0136"
-            type="text"
+            type="number"
             inputName="input"
             {...register('phone', {
               required: {
                 value: true,
                 message: 'Enter Phone Number !!!',
               },
-              pattern: {
-                value: /^[0-9]{10,15}$/i,
-                message: 'Wrong Format',
-              },
+              maxLength:9
             })}
             isError={Boolean(errors.phone)}
             textError={errors.phone?.message}
@@ -104,17 +96,17 @@ const CheckoutLeftSide = ({ register, errors }: Props) => {
             label="ZIP Code"
             id="zipId"
             placeHolder="10001"
-            type="text"
+            type="number"
             inputName="input"
             {...register('zip', {
               required: {
                 value: true,
                 message: 'Enter ZIP Code !!!',
               },
-              pattern: {
-                value: /^[0-9]{5,6}$/i,
-                message: 'Wrong Format',
-              },
+              maxLength:{
+                value:4,
+                message:'Zip Code Contains 4 Number'
+              }
             })}
             isError={Boolean(errors.zip)}
             textError={errors.zip?.message}
@@ -159,20 +151,16 @@ const CheckoutLeftSide = ({ register, errors }: Props) => {
             <Input
               label="e-Money"
               id="pay-emoney"
-              name="paymentOption"
               type="radio"
               isChecked={paymentOption === 'emoney'}
-              value="emoney"
-              handleChange={handleRadioChange}
+              onChange={() => setPaymentOption('emoney')}
             />
             <Input
               label="Cash on Delivery"
               id="pay-cash"
-              name="paymentOption"
               type="radio"
               isChecked={paymentOption === 'cash'}
-              value="cash"
-              handleChange={handleRadioChange}
+              onChange={() => setPaymentOption('cash')}
             />
           </div>
         </div>
@@ -194,7 +182,7 @@ const CheckoutLeftSide = ({ register, errors }: Props) => {
               <Input
                 label="e-Money Number"
                 placeHolder="238521993"
-                type="text"
+                type="number"
                 inputName="input"
                 id="num"
                 {...register('emoneyNumber', {

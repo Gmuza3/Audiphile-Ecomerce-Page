@@ -11,6 +11,8 @@ type Props={
     check:boolean
 }
 const CheckoutRightSide =({total,grandTotal,cartData,check} : Props) =>{
+
+    console.log(check,'check')
     return(
         <div className={style['checkout-rightSide']}>
             <div className={style['checkoutList']}>

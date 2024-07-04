@@ -6,6 +6,7 @@ import CheckoutLeftSide from './Checkout-leftSide';
 import { Spinner } from 'react-bootstrap';
 import { useAppselectore } from '../../Store';
 import { useForm } from "react-hook-form";
+import Alert from 'react-bootstrap/Alert';
 
 export type FormForPost = {
   name: string;
@@ -27,6 +28,7 @@ const CheckoutItems = () => {
   const [grandTotal, setGrandTotal] = useState<string>('');
   const [check, setCheck] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm<FormForPost>();
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -45,10 +47,15 @@ const CheckoutItems = () => {
 
   const onSubmit = (data:FormForPost) => {
     console.log(data)
-    setCheck(prev => !prev)
+    if(cartData.length >0){
+      console.log(cartData,'cartData')
+      setCheck(prev => !prev)
+    }
+    else{
+      setShow(true);
+    }
   };
 
-  console.log(errors)
   return (
     <div className={style['container']}>
       {loading && (
@@ -58,8 +65,31 @@ const CheckoutItems = () => {
           </Spinner>
         </div>
       )}
+      {show && (
+        <div className={style.alertWrapper}>
+          <Alert variant="danger" onClose={() => setShow(false)} >
+            <Alert.Heading>Cart is Empty!</Alert.Heading>
+            <p>
+              Your shopping cart is empty. Please add items to your cart before proceeding to checkout.
+              Go back to the products page and select the items you wish to purchase.
+              <div style={{paddingTop:"15px"}}>
+                <Button 
+                      text={'Click There !'} 
+                      isLink={true} 
+                      path={cartData.length>0? `/products/category/${cartData.at(-1)?.category}` : '/'}
+                      buttonName={'active-gray'} 
+                />
+              </div>
+            </p>
+          </Alert>
+        </div>
+      )}
       <div className={style.goBackTag}>
-        <Button text={'Go Back'} isLink={true} path='/' buttonName={'active-gray'} />
+        <Button 
+          text={'Go Back'} 
+          isLink={true} 
+          path={cartData.length>0? `/products/category/${cartData.at(-1)?.category}` : '/'}
+          buttonName={'active-gray'} />
       </div>
       <form className={style['checkout-container']} onSubmit={handleSubmit(onSubmit)}>
         <CheckoutLeftSide 

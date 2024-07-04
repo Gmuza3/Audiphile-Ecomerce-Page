@@ -19,7 +19,6 @@ const HomeMain =() =>{
         dispatch(getData())
         window.scrollTo({top:0,behavior:"instant"})
     },[dispatch])
-    console.log("main", data)
     return(
         <div className={style.main}>
                 <Hero/>

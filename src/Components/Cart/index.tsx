@@ -3,6 +3,7 @@ import { useAppDispatch, useAppselectore } from "../../Store";
 import { changeCartCount, removeAll, removeItem } from "../../Store/Cart";
 import style from './style.module.css'
 import Button from "../UI/Button";
+import { useNavigate } from "react-router-dom";
 
 type Props={
     closeModal:() => void
@@ -12,7 +13,8 @@ const Cart = ({closeModal}:Props) => {
     const dispatch = useAppDispatch();
     const { cartData } = useAppselectore(state => state.cart);
     const[total,setTotal]=useState<string>();
-
+    const navigate = useNavigate()
+    
     const handleDecrease2 = useCallback((itemId:string) => {
         const item = cartData.find(item => item.id === itemId);
         if (item) {
@@ -94,9 +96,9 @@ const Cart = ({closeModal}:Props) => {
                 <div className={style['cart-button']} onClick={() => closeModal()}>
                     <Button
                         text={"Checkout"}
-                        isLink={true}
-                        path='/products/checkout'
-                        buttonName={'active'}
+                        handleClick={() => navigate('/products/checkout',{replace:true})}
+                        buttonType="button"
+                        buttonName={'btn-primary-100'}
                     />
                 </div>
         </div>

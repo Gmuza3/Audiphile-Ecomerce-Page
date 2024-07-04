@@ -1,4 +1,4 @@
-import { ChangeEvent, forwardRef } from 'react';
+import {HtmlHTMLAttributes, forwardRef } from 'react';
 import style from './style.module.css';
 
 type Props = {
@@ -8,13 +8,9 @@ type Props = {
   id?: string;
   isError?: boolean;
   textError?: string;
-  // isRequire?: boolean;
   inputName?: string;
-  // name?: string;
   isChecked?: boolean;
-  // value?: string | number;
-  // handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-};
+} & HtmlHTMLAttributes<HTMLInputElement>;
 
 const Input = forwardRef<HTMLInputElement, Props>(({
   label,
@@ -28,7 +24,6 @@ const Input = forwardRef<HTMLInputElement, Props>(({
   ...props
 }, ref) => {
   const inputClass = `${style[inputName as string]} ${isError ? style.inputError : ''}`;
-
   if (type === 'radio') {
     return (
       <div className={style.radioInput}>

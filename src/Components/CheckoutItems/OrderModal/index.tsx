@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 type Props={
     grandTotal:string | undefined,
-    cartData:Products[]
+    cartData?:Products[]
 }
 
 const OrderModal =({grandTotal,cartData}:Props) =>{
@@ -33,59 +33,61 @@ const OrderModal =({grandTotal,cartData}:Props) =>{
             </div>
             <div className={style['order-container-wrapper']}>
                 <ul className={style["orderList"]}>
-                    <li className={style['order-listItem']}>
-                        {view? (
-                            cartData.map((item) =>{
-                                return(
-                                    <div className={style['order-leftSide']}>
-                                        <div className={style['order-leftSide-wrapper']}>
-                                            <div className={style['order-imgZone']}>
-                                                <img src={`http://${window.location.host}/${item?.image?.desktop}`} alt={cartData[0].name} />
+                    {cartData!== undefined && (
+                        <li className={style['order-listItem']}>
+                            {view? (
+                                cartData?.map((item) =>{
+                                    return(
+                                        <div className={style['order-leftSide']} key={item.id}>
+                                            <div className={style['order-leftSide-wrapper']}>
+                                                <div className={style['order-imgZone']}>
+                                                    <img src={`http://${window.location.host}/${item?.image?.desktop}`} alt={cartData[0].name} />
+                                                </div>
+                                                <div className={style['order-leftSide-text']}>
+                                                    <h3>
+                                                        {item.name.split(" ").slice(0,-1).join(" ")}
+                                                    </h3>
+                                                    <span>$ {item.price}</span>
+                                                </div>
                                             </div>
-                                            <div className={style['order-leftSide-text']}>
-                                                <h3>
-                                                    {item.name.split(" ").slice(0,-1).join(" ")}
-                                                </h3>
-                                                <span>$ {item.price}</span>
+                                            <div className={style['orderCount']}>
+                                                <span>x{item.count}</span>
                                             </div>
                                         </div>
-                                        <div className={style['orderCount']}>
-                                            <span>x{item.count}</span>
+                                    )
+                                })
+                            ): (
+                                <div className={style['order-leftSide']}>
+                                    <div className={style['order-leftSide-wrapper']}>
+                                        <div className={style['order-imgZone']}>
+                                            <img src={`http://${window.location.host}/${cartData[0]?.image?.desktop}`} alt={cartData[0].name} />
+                                        </div>
+                                        <div className={style['order-leftSide-text']}>
+                                            <h3>
+                                                {cartData[0].name.split(" ").slice(0,-1).join(" ")}
+                                            </h3>
+                                            <span>$ {cartData[0].price}</span>
                                         </div>
                                     </div>
+                                    <div className={style['orderCount']}>
+                                        <span>x{cartData[0].count}</span>
+                                    </div>
+                                </div>
+                            )}
+                            <div className={style['order-Items']}>
+                                {!view? (
+                                    <p onClick={handleView} style={{cursor:'pointer'}}>
+                                        and  {cartData.length-1}  other item(s)
+                                    </p>
+                                ):(
+                                    <p onClick={handleView} style={{cursor:'pointer'}}>
+                                        View less
+                                    </p>
                                 )
-                            })
-                        ): (
-                            <div className={style['order-leftSide']}>
-                                <div className={style['order-leftSide-wrapper']}>
-                                    <div className={style['order-imgZone']}>
-                                        <img src={`http://${window.location.host}/${cartData[0]?.image?.desktop}`} alt={cartData[0].name} />
-                                    </div>
-                                    <div className={style['order-leftSide-text']}>
-                                        <h3>
-                                            {cartData[0].name.split(" ").slice(0,-1).join(" ")}
-                                        </h3>
-                                        <span>$ {cartData[0].price}</span>
-                                    </div>
-                                </div>
-                                <div className={style['orderCount']}>
-                                    <span>x{cartData[0].count}</span>
-                                </div>
+                                }
                             </div>
-                        )}
-                        <div className={style['order-Items']}>
-                            {!view? (
-                                <p onClick={handleView} style={{cursor:'pointer'}}>
-                                    and  {cartData.length-1}  other item(s)
-                                </p>
-                            ):(
-                                <p onClick={handleView} style={{cursor:'pointer'}}>
-                                     View less
-                                </p>
-                            )
-                            }
-                        </div>
-                    </li>
+                        </li>
+                    )}
                 </ul>
                 <div className={style['order-rightSide']}>
                     <div className={style['order-priceSide']}>
