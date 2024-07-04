@@ -183,13 +183,16 @@
         padding-bottom: 70px;
     }
 }
-@media (max-width:840px) {
+@media (max-width:890px) {
     .main-footer-firstBox .first-box-leftSide .speaker-img {
         width: 215px;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
         top: 36px;
+    }
+    .main-footer-secondtBox {
+        min-height: 250px;
     }
 }
 @media (max-width:792px) {
@@ -239,6 +242,7 @@
     }
     .main-footer-secondtBox {
         background-image: url(../../../public/assets/home/mobile/image-speaker-zx7.jpg);
+        min-height: 520px;
     }
     .main-footer-secondtBox .second-box-leftSide{
         width: 50%; 

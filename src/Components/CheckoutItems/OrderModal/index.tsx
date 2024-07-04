@@ -40,7 +40,7 @@ const OrderModal =({grandTotal,cartData}:Props) =>{
                                     <div className={style['order-leftSide']}>
                                         <div className={style['order-leftSide-wrapper']}>
                                             <div className={style['order-imgZone']}>
-                                                <img src={`http://${window.location.host}/${item.image.desktop}`} alt={cartData[0].name} />
+                                                <img src={`http://${window.location.host}/${item?.image?.desktop}`} alt={cartData[0].name} />
                                             </div>
                                             <div className={style['order-leftSide-text']}>
                                                 <h3>
@@ -59,7 +59,7 @@ const OrderModal =({grandTotal,cartData}:Props) =>{
                             <div className={style['order-leftSide']}>
                                 <div className={style['order-leftSide-wrapper']}>
                                     <div className={style['order-imgZone']}>
-                                        <img src={`http://${window.location.host}/${cartData[0].image.desktop}`} alt={cartData[0].name} />
+                                        <img src={`http://${window.location.host}/${cartData[0]?.image?.desktop}`} alt={cartData[0].name} />
                                     </div>
                                     <div className={style['order-leftSide-text']}>
                                         <h3>

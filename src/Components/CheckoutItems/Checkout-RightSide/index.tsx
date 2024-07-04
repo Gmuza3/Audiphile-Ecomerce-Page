@@ -3,20 +3,14 @@ import Button from '../../UI/Button'
 import style from '../style.module.css'
 import { Products } from '../../../Static/type';
 import OrderModal from '../OrderModal';
-import { useState } from 'react';
 
 type Props={
     total:string | undefined,
     grandTotal:string | undefined,
-    cartData:Products[]
+    cartData:Products[],
+    check:boolean
 }
-const CheckoutRightSide =({total,grandTotal,cartData} : Props) =>{
-    const[click,setClick] = useState(false);
-    const handleClick =() =>{
-        setClick(prev => !prev)
-    }
-    console.log(cartData[0]?.name.split(" "))
-    console.log(cartData[1]?.name.split(" "))
+const CheckoutRightSide =({total,grandTotal,cartData,check} : Props) =>{
     return(
         <div className={style['checkout-rightSide']}>
             <div className={style['checkoutList']}>
@@ -59,11 +53,10 @@ const CheckoutRightSide =({total,grandTotal,cartData} : Props) =>{
                     <Button
                         buttonType='submit'
                         text={"CONTINUE & PAY"}
-                        handleClick={handleClick}
                         buttonName={'btn-primary-100'}
                     />
                 </div>
-                {click && (
+                {check && (
                     <div className={style['orderModal']}>
                         <OrderModal
                             grandTotal={grandTotal}

@@ -10,7 +10,7 @@ type Props ={
     buttonName:string
 } 
 const Button = (props:Props) =>{
-    const {text, handleClick, buttonName,isLink,path,buttonType='button'} = props;
+    const {text, handleClick, buttonName,isLink,path,buttonType='submit'} = props;
     if(isLink && path){
         return(
             <>

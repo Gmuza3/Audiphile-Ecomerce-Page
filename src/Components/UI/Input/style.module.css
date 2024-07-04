@@ -26,23 +26,20 @@
     background: var(--white);
 }
 
-.radioInput label {
+.radioInput .radioLabel {
     color: var(--black);
     font-family: "Manrope";
     font-size: 15px;
     font-weight: 700;
     letter-spacing: -0.25px;
 }
-/* .radioInput input[type="radio"]:checked + .radioInput {
-    border-radius: 8px;
-    border: 1px solid var(--orange);
-    background: #FFF;
-} */
-/* .radioInput:hover{
-    border-radius: 8px;
-    border: 1px solid var(--orange);
-    background: var(--white);
-} */
+.radioInput .errorRadioLabel{
+    color: #CD2C2C;
+    font-family: "Manrope";
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.214px;
+}
 
 .inputWrapper {
     width: 100%;
@@ -128,6 +125,12 @@
     font-size: 14px;
     font-weight: 700;
     letter-spacing: -0.25px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @media (max-width:540px) {
