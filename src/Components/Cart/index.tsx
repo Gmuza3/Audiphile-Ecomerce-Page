@@ -34,23 +34,18 @@ const Cart = ({closeModal}:Props) => {
             dispatch(changeCartCount({ data: item, newCount }));
         }
     },[cartData, dispatch]);
-
-    useEffect(() =>{
-        setTotal(() =>{
-            const totalAmount = cartData.reduce((acc, item) => {
-                return acc + (item.count as number) * item.price;
-            }, 0);
-
-            return totalAmount >= 1000
-                ? (totalAmount / 1000).toFixed(3).replace('.', ',')
-                : totalAmount.toString();
-        })
-    },[cartData])
-
-    if(total === undefined){
-        <div><p>not foudnd information</p></div>
-    }
     
+
+    useEffect(() => {
+        const totalAmount = cartData.reduce((acc, item) => acc + (item.count as number) * item.price, 0);
+        setTotal(totalAmount >= 1000 ? (totalAmount / 1000).toFixed(3).replace('.', ',') : totalAmount.toString());
+    }, [cartData]);
+    
+
+    if (total === undefined) {
+        return <div><p>Not found information</p></div>;
+    }
+
     return (
         <div className={style['cart-container']}>
                 <div className={style['cart-containerHead']}>

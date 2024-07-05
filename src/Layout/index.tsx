@@ -33,7 +33,6 @@ const Layout = () =>{
             document.body.classList.remove(cartStyle['no-scroll'])
         }
     },[isCartOpen])
-    console.log(burgerMenuOpen, 'burgerMenu')
     return(
         <div className={style.zone}>
             <Header toggleCart={toggleCart} toggleMenu={toggleMenu}/>

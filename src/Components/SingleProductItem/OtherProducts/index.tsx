@@ -10,7 +10,6 @@ type Props={
 const OtherProducts =(props:Props) =>{
     const navigate=useNavigate();
     const{otherProducts} = props;
-    console.log(otherProducts)
     return(
         <>
             <h6>you may also like</h6>
@@ -21,7 +20,6 @@ const OtherProducts =(props:Props) =>{
                             <div className={style["list-item-imgZone"]}>
                                 <img src={`http://${window.location.host}/${item.image.desktop}`} alt="" className={style['desktopImg']} />
                                 <img src={`http://${window.location.host}/${item.image.mobile}`} alt="" className={style['mobileImg']} />
-                            
                             </div>
                             <div className={style.commonZone}>
                                 <div className={style['list-item-nameZone']}>

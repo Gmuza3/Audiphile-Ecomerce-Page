@@ -6,12 +6,8 @@ export const getSingleProductData = createAsyncThunk('singleProduct/getSinglePro
     try{
         const response = await api.get<Products[]>("/products");
         const findItem = response.data.filter((item) => {
-            // console.log(typeof item.id)
-            // return (item.id as string) === id
             return item.slug === slug
         })
-        // console.log(response.data)
-        console.log(findItem)
         if (findItem) {
             await new Promise(resolve => setTimeout(resolve, 700));
             return findItem.find((item) =>{

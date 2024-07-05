@@ -6,6 +6,8 @@
     align-items:center;
     background-color: var(--black);
     padding: 196px 0px 97px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
 }
 .category-main-head h5{
     color: var(--white);
@@ -112,7 +114,7 @@
     line-height: 1.1em; 
     letter-spacing: 1.429px;
     text-transform: uppercase;
-    min-width: 370px;
+    width: 380px;
 }
 .category-container .container-right-side .container-details .container-text span,
 .reversed .container-right-side .container-details .container-text span{

@@ -48,7 +48,6 @@ const CheckoutItems = () => {
   const onSubmit = (data:FormForPost) => {
     console.log(data)
     if(cartData.length >0){
-      console.log(cartData,'cartData')
       setCheck(prev => !prev)
     }
     else{

@@ -4,12 +4,13 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     background: var(--black);
     padding: 35px 165px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: fixed;
     z-index: 1000;
 }
+
 .header-logo-zone{
     min-width: 10%;
     display: flex;
