@@ -13,6 +13,7 @@ const CategoryProducts =() =>{
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const params =useParams();
+
     useEffect(() =>{
         setLoading(true)
         if(params.name !== undefined){
@@ -26,6 +27,8 @@ const CategoryProducts =() =>{
             []
         }
     },[dispatch, params.name])
+    
+    
     return(
         <>
             <div className={style['category-main-head']}>
@@ -39,10 +42,10 @@ const CategoryProducts =() =>{
                         </Spinner>
                     )}
                     {!loading && (
-                        data.map((item) =>{
+                        data.map((item,index) =>{
                             return(
                                 <li key={item.id}>
-                                    <div className={style['category-container']}>
+                                    <div className={index === 1 ? style['reversed'] : style['category-container'] }>
                                         <div className={style['container-left-side']} >
                                             <img src={`http://${window.location.host}/${item.categoryImage.desktop}`} alt=""  className={style.desktopImg}/>
                                             <img src={`http://${window.location.host}/${item.categoryImage.tablet}`} alt=""  className={style.tabletImg}/>
