@@ -8,7 +8,6 @@ import { getData } from '../../Store/Products'
 import ProductBoxes from '../ProductBoxes'
 import Button from '../UI/Button'
 import { useNavigate } from 'react-router-dom'
-// import Speaker from './Hero.tsx/index.tsx'
 import Hero from './Hero.tsx'
 
 const HomeMain =() =>{

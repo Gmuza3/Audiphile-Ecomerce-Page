@@ -226,6 +226,7 @@
 @media (max-width:410px) {
     .active{
         padding: 24px 128px;
+        top: 69px;
     }
 
 }
