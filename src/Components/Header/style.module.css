@@ -12,7 +12,8 @@
 }
 
 .header-logo-zone{
-    min-width: 10%;
+    /* min-width: 10%; */
+    min-width: 20%;
     display: flex;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -47,6 +48,31 @@
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+.header-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.header-cart .sign-nav p a{
+    color: var(--white);
+    font-family: "Manrope";
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration:dotted ;
+    cursor: pointer;
+}
+.header-cart .sign-nav p .active:hover{
+    color: #D87D4A;
+    font-family: "Manrope";
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 2px;
+}
 .header-cart-zone{
     display: flex;
     justify-content: center;
@@ -77,11 +103,16 @@
         gap: 42px;
         padding: 32px 40px;
     }
-    .header-cart-zone{
+    .header-cart{
         width: 70%;
        display: flex;
        justify-content: flex-end;
     }
+    /* .header-cart-zone{
+        width: 70%;
+       display: flex;
+       justify-content: flex-end;
+    } */
 }
 @media (min-width:1080px) {
     .header-nav-zone{

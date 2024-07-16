@@ -64,7 +64,7 @@ const ProductHeaderSide = ({
                         <Button
                             text={"Add to Cart"}
                             handleClick={handleClick}
-                            buttonName={'btn-primary-link'}
+                            buttonName={'btn-primary'}
                         />
                     </div>
                 </div>

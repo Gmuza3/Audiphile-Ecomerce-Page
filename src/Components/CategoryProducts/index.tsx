@@ -59,7 +59,7 @@ const CategoryProducts =() =>{
                                                     <span>{item.description}</span>
                                                 </div>
                                                 <div className={style['container-button']}>
-                                                    <Button text={"See Product"} handleClick={() => navigate(`/product/${item.slug}`)} buttonName={'btn-primary-link'} />
+                                                    <Button text={"See Product"} handleClick={() => navigate(`/product/${item.slug}`)} buttonName={'btn-primary'} />
                                                 </div>
                                             </div>
                                         </div>

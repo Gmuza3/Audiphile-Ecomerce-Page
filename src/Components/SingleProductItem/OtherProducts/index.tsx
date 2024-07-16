@@ -29,7 +29,7 @@ const OtherProducts =(props:Props) =>{
                                     <Button 
                                         text={"See Product"} 
                                         handleClick={() => navigate(`/product/${item.slug}`)} 
-                                        buttonName={'btn-primary-link'} />
+                                        buttonName={'btn-primary'} />
                                 </div>
                             </div>
                         </li>

@@ -24,7 +24,7 @@ const Hero =() =>{
                             {{<div>...loading</div>}}
                         }
                     }} 
-                    buttonName={'btn-primary-link'} />
+                    buttonName={'btn-primary'} />
             </div>
         </div>
             <div className={style["header-main-right"]}>

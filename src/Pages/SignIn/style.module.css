@@ -1,0 +1,31 @@
+.sign-zone{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-gray);
+    position: relative;
+}
+.logo-zone{
+    position: absolute;
+    top: 12%;
+    cursor: pointer;
+}
+.sign-zone form{
+    /* padding-top:200px; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--white);
+    border: 1px solid var(--white);
+    border-radius: 6px;
+    padding: 25px;
+}
+.sign-zone form h5{
+    font-size: 22px;
+    font-family: "Manrope";
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}

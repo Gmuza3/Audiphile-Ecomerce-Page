@@ -77,6 +77,22 @@
     border: 1px solid var(--light-gray);
     background: var(--white);
 }
+.signInEmail{
+    width: 350px;
+    height: 56px;
+    padding: 18px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+}
+.signInPass{
+    width: 350px;
+    height: 56px;
+    padding: 18px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+}
 .input:focus,.input-100w:focus{
     border-radius: 8px;
     border: 1px solid var(--orange);
