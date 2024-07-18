@@ -39,7 +39,7 @@ const Profile = () => {
     useEffect(() =>{
         setTimeout(() =>{
             getUser()
-        },500)
+        },300)
     },[])
 
     return (

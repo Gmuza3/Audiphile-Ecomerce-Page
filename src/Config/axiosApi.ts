@@ -10,20 +10,15 @@ const api = axios.create({
 
 api.interceptors.request.use(
     ((req) =>{
-        // req.headers["Accept"] = "application/json"
-        // req.headers["Content-Type"] ="application/json"
-        // req.headers["Authorization"] = `Bearer`
         return req
     }),
     ((error) =>{
-        console.log(error)
         return Promise.reject(error)
     })
 )
 
 api.interceptors.response.use(
     (response) => {
-        console.log("Response:", response);
         return response;
     },
     (error) => {

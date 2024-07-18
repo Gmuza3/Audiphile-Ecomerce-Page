@@ -68,7 +68,6 @@
     border-radius: 8px;
     border: 1px solid var(--light-gray);
     background: var(--white);
-    text-transform: capitalize;
 }
 .input-100w{
     width: 100%;
@@ -77,10 +76,9 @@
     border-radius: 8px;
     border: 1px solid var(--light-gray);
     background: var(--white);
-    text-transform: capitalize;
 }
-.signEmail,.signPass,.signAge,.signUsername,.signCountry,
-.signAddress,.signPhone,.signZip,.signCity
+.signEmail, .signPass, .signAge, .signUsername, .signCountry,
+.signAddress, .signPhone, .signZip, .signCity
 {
     min-width: 350px;
     height: 56px;
@@ -148,22 +146,27 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width:540px) {
-    .radioInput{
-        min-width: 350px;
-        max-width: 350px;
-    }
-    .inputWrapper{
+    .input,.input-100w,.radioInput{
         min-width: 350px;
         max-width: 350px;
     }
 }
 @media (max-width:445px) {
-    .radioInput {
+    .input,.input-100w,.radioInput {
         min-width: 250px;
         max-width: 250px;
     }
-    .inputWrapper{
+    .signEmail, .signPass, .signAge, .signUsername, .signCountry,
+    .signAddress, .signPhone, .signZip, .signCity
+    {
+        min-width: 305px;
+    }
+}
+
+@media (max-width:360px) {
+    .signEmail, .signPass, .signAge, .signUsername, .signCountry,
+    .signAddress, .signPhone, .signZip, .signCity
+    {
         min-width: 250px;
-        max-width: 250px;
     }
 }

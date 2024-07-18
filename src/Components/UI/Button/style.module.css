@@ -17,6 +17,7 @@
 }
 .btn-link2{
     width: auto;
+    min-width: 140px;
     border: none;
     padding: 15px 29.5px 15px 31.5px;
     background: transparent;
@@ -29,23 +30,6 @@
     border: 1px solid var(--black);
 }
 .btn-link2:hover{
-    background: var(--black);
-    color: var(--white);
-}
-.btn-link3{
-    width: auto;
-    border: none;
-    padding: 15px 29.5px 15px 31.5px;
-    background: transparent;
-    color: var(--black);
-    font-family: "Manrope";
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border: 1px solid var(--black);
-}
-.btn-link3:hover{
     background: var(--black);
     color: var(--white);
 }

@@ -71,7 +71,7 @@ const UserUpdate = () => {
     },[])
 
   return (
-    <div style={{padding:"200px"}}>
+    <div style={{minHeight:'100vh'}} className={style['update-zone']}>
         {show && (
             <div className={style.alertWrapper}>
                 <Alert variant="danger" >
@@ -91,7 +91,7 @@ const UserUpdate = () => {
             </div>
         )}
         <form onSubmit={handleSubmit(onSubmit)}>
-                <h5>Update User</h5>
+                <h5>User Update</h5>
                 <div className={style['input-grid-zone']}>
                     <Input 
                         label="Email"

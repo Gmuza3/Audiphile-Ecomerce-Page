@@ -77,6 +77,13 @@
         padding: 65px 24px 0px;
     }
 }
+@media (max-width:440px){
+    .user .right-side{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
 @media (max-height:720px){
     .profile-container{
         padding-top: 150px;
