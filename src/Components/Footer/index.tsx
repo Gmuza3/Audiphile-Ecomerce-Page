@@ -11,7 +11,7 @@ const Footer = () => {
         '/products/category',
         '/product'
     ].some(path => location.pathname.startsWith(path));
-    const checkoutShow = location.pathname !=="/products/checkout"
+    const checkoutShow = !(location.pathname === "/products/checkout" || location.pathname === "/profile" || location.pathname === "/update-user");
 
     return (
         <div className={style['footer']}>

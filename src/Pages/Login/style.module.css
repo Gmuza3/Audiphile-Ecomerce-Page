@@ -7,13 +7,20 @@
     background-color: var(--light-gray);
     position: relative;
 }
-.logo-zone{
+.alertWrapper{
     position: absolute;
-    top: 12%;
+    top: 44%;
+    width: 19%;
+}
+.logo-zone{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.logo-zone svg{
     cursor: pointer;
 }
 .sign-zone form{
-    /* padding-top:200px; */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -28,4 +35,5 @@
     font-weight: 800;
     letter-spacing: 1px;
     text-transform: uppercase;
+    padding-top: 10px;
 }

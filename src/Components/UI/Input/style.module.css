@@ -68,6 +68,7 @@
     border-radius: 8px;
     border: 1px solid var(--light-gray);
     background: var(--white);
+    text-transform: capitalize;
 }
 .input-100w{
     width: 100%;
@@ -76,23 +77,20 @@
     border-radius: 8px;
     border: 1px solid var(--light-gray);
     background: var(--white);
+    text-transform: capitalize;
 }
-.signInEmail{
-    width: 350px;
+.signEmail,.signPass,.signAge,.signUsername,.signCountry,
+.signAddress,.signPhone,.signZip,.signCity
+{
+    min-width: 350px;
     height: 56px;
     padding: 18px 24px;
     border-radius: 8px;
     border: 1px solid var(--light-gray);
     background: var(--white);
+    text-transform: capitalize;
 }
-.signInPass{
-    width: 350px;
-    height: 56px;
-    padding: 18px 24px;
-    border-radius: 8px;
-    border: 1px solid var(--light-gray);
-    background: var(--white);
-}
+
 .input:focus,.input-100w:focus{
     border-radius: 8px;
     border: 1px solid var(--orange);
@@ -150,13 +148,21 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width:540px) {
-    .input,.input-100w,.radioInput {
+    .radioInput{
+        min-width: 350px;
+        max-width: 350px;
+    }
+    .inputWrapper{
         min-width: 350px;
         max-width: 350px;
     }
 }
 @media (max-width:445px) {
-    .input,.input-100w,.radioInput {
+    .radioInput {
+        min-width: 250px;
+        max-width: 250px;
+    }
+    .inputWrapper{
         min-width: 250px;
         max-width: 250px;
     }

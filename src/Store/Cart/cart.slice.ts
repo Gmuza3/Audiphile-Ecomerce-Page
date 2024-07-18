@@ -28,12 +28,6 @@ const CartSlice = createSlice({
             })
         },
         handleTotalPirce:(state,action:PayloadAction<number>) =>{
-            // state.cartData =state.cartData.map((item) =>{
-            //     return{
-            //         ...item,
-            //         newPrice:action.payload * item.price
-            //     }
-            // })
             state.cartData = state.cartData.reduce((acc, item) => {
                 acc.push({
                     ...item,

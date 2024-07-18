@@ -1,17 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Input from '../../UI/Input';
 import style from '../style.module.css';
 import logoImg from '../../../../public/assets/checkout/icon-cash-on-delivery.svg';
 import { FormForPost } from '..';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import { FieldErrors, UseFormRegister, UseFormSetValue } from 'react-hook-form';
 
 type Props = {
   register: UseFormRegister<FormForPost>;
   errors: FieldErrors<FormForPost>;
+  setValue: UseFormSetValue<FormForPost>;
 };
 
-const CheckoutLeftSide = ({ register, errors }: Props) => {
+const CheckoutLeftSide = ({ register, errors, setValue }: Props) => {
   const [paymentOption, setPaymentOption] = useState('emoney');
+
+  useEffect(() => {
+    setValue('paymentOption', paymentOption);
+  }, [paymentOption, setValue]);
+
   return (
     <div className={style['checkout-leftSide']}>
       <h3>CHECKOUT</h3>
@@ -58,20 +64,23 @@ const CheckoutLeftSide = ({ register, errors }: Props) => {
           />
         </div>
         <Input
-            label="Phone Number"
-            id="phoneId"
-            placeHolder="+1 202-555-0136"
-            type="number"
-            inputName="input"
-            {...register('phone', {
-              required: {
-                value: true,
-                message: 'Enter Phone Number !!!',
-              },
-              maxLength:9
-            })}
-            isError={Boolean(errors.phone)}
-            textError={errors.phone?.message}
+          label="Phone Number"
+          id="phoneId"
+          placeHolder="+1 202-555-0136"
+          type="text"
+          inputName="input"
+          {...register('phone', {
+            required: {
+              value: true,
+              message: 'Enter Phone Number !!!',
+            },
+            pattern: {
+              value: /^\+?\d{0,3}?[-.\s]?\d{1,3}[-.\s]?\d{1,4}[-.\s]?\d{1,4}$/,
+              message: "Wrong Format!"
+            }
+          })}
+          isError={Boolean(errors.phone)}
+          textError={errors.phone?.message}
         />
       </div>
       <div className={style['checkout-shippingInfo']}>
@@ -104,7 +113,7 @@ const CheckoutLeftSide = ({ register, errors }: Props) => {
                 message: 'Enter ZIP Code !!!',
               },
               maxLength:{
-                value:4,
+                value:5,
                 message:'Zip Code Contains 4 Number'
               }
             })}

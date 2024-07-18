@@ -32,7 +32,7 @@ const Layout = () => {
         }
     }, [isCartOpen]);
 
-    const isSignInPage = location.pathname === "/signin";
+    const isSignInPage = location.pathname === "/login" || location.pathname === '/register';
 
     return (
         <div className={style.zone}>

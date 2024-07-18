@@ -149,6 +149,9 @@
     .container{
         padding: 120px 39px 0px;
     }
+    .container ul{
+        gap: 120px;
+    }
     .container ul li .category-container,
     .container ul li .reversed{
         width: 100%;
@@ -204,9 +207,6 @@
 @media  (max-width:590px) {
     .container{
         padding: 64px 24px 0px;
-    }
-    .container ul{
-        gap: 120px;
     }
     .category-container .container-left-side,
     .reversed .container-left-side {

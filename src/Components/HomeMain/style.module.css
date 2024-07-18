@@ -179,9 +179,9 @@
     .main-footer .first-box-rightSide p {
         text-align: center;
     }
-    .main-footer-divideBox{
+    /* .main-footer-divideBox{
         padding-bottom: 70px;
-    }
+    } */
 }
 @media (max-width:890px) {
     .main-footer-firstBox .first-box-leftSide .speaker-img {
@@ -258,9 +258,7 @@
         letter-spacing: 1.286px;
         text-align: center;
     }
-    .main-footer-divideBox{
-        padding-bottom: 35px;
-    }
+
 }
 
 @media (max-width:540px) {
@@ -275,7 +273,7 @@
 }
 @media (max-width:440px) {
     .main-footer {
-        padding: 85px 15px 0px;
+        padding: 85px 15px 35px;
     }
     .main-footer-secondtBox .second-box-leftSide{
         padding-left: 10px;

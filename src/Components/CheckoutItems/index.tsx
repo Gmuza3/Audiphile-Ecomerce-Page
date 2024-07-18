@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import style from './style.module.css';
 import Button from '../UI/Button';
 import CheckoutRightSide from './Checkout-RightSide';
 import CheckoutLeftSide from './Checkout-leftSide';
 import { Spinner } from 'react-bootstrap';
 import { useAppselectore } from '../../Store';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import Alert from 'react-bootstrap/Alert';
+import supabase from '../../Config/supabaseConfig';
+import { User } from '@supabase/auth-js';
 
 export type FormForPost = {
   name: string;
@@ -27,33 +29,58 @@ const CheckoutItems = () => {
   const [total, setTotal] = useState<string>('');
   const [grandTotal, setGrandTotal] = useState<string>('');
   const [check, setCheck] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm<FormForPost>();
+  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormForPost>();
   const [show, setShow] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
+  const getUser = useCallback(async () => {
+    try {
+      const { data: { user }, error } = await supabase.auth.getUser();
+      if (error) throw error;
+
+      if (user) {
+        setUser(user);
+        reset({
+          email: user.user_metadata?.email || '',
+          name: user.user_metadata?.userName || '',
+          phone: user.user_metadata?.phone || '',
+          address: user.user_metadata?.address || '',
+          zip: user.user_metadata?.zip || '',
+          city: user.user_metadata?.city || '',
+          country: user.user_metadata?.country || '',
+          paymentOption: 'emoney'
+        });
+      }
+    } catch (error) {
+      setError(error instanceof Error ? error.message : String(error));
+    }
+  }, [reset]);
+
+  useEffect(() => {
+    getUser();
+  }, [getUser]);
+
+  const onSubmit = () => {
+    if (cartData.length > 0) {
+      setCheck(prev => !prev);
+    } else {
+      setShow(true);
+    }
+  };
+
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 700);
+    setTimeout(() => setLoading(false), 700);
+
     const totalAmount = cartData.reduce((acc, item) => acc + (item.count as number) * item.price, 0);
     setTotal(totalAmount >= 1000 ? (totalAmount / 1000).toFixed(3).replace('.', ',') : totalAmount.toString());
     setGrandTotal(totalAmount + 50 >= 1000 ? ((totalAmount + 50) / 1000).toFixed(3).replace('.', ',') : (totalAmount + 50).toString());
   }, [cartData]);
-
-
-  const onSubmit = (data:FormForPost) => {
-    console.log(data)
-    if(cartData.length >0){
-      setCheck(prev => !prev)
-    }
-    else{
-      setShow(true);
-    }
-  };
 
   return (
     <div className={style['container']}>
@@ -66,17 +93,17 @@ const CheckoutItems = () => {
       )}
       {show && (
         <div className={style.alertWrapper}>
-          <Alert variant="danger" onClose={() => setShow(false)} >
+          <Alert variant="danger" onClose={() => setShow(false)} dismissible>
             <Alert.Heading>Cart is Empty!</Alert.Heading>
             <p>
               Your shopping cart is empty. Please add items to your cart before proceeding to checkout.
               Go back to the products page and select the items you wish to purchase.
-              <div style={{paddingTop:"15px"}}>
-                <Button 
-                      text={'Click There !'} 
-                      isLink={true} 
-                      path={cartData.length>0? `/products/category/${cartData.at(-1)?.category}` : '/'}
-                      buttonName={'active-gray'} 
+              <div style={{ paddingTop: '15px' }}>
+                <Button
+                  text="Click Here!"
+                  isLink
+                  path={`/products/category/${cartData.length > 0 ? cartData.at(-1)?.category : ''}`}
+                  buttonName="active-gray"
                 />
               </div>
             </p>
@@ -84,16 +111,18 @@ const CheckoutItems = () => {
         </div>
       )}
       <div className={style.goBackTag}>
-        <Button 
-          text={'Go Back'} 
-          isLink={true} 
-          path={cartData.length>0? `/products/category/${cartData.at(-1)?.category}` : '/'}
-          buttonName={'active-gray'} />
+        <Button
+          text="Go Back"
+          isLink
+          path={`/products/category/${cartData.length > 0 ? cartData.at(-1)?.category : ''}`}
+          buttonName="active-gray"
+        />
       </div>
       <form className={style['checkout-container']} onSubmit={handleSubmit(onSubmit)}>
-        <CheckoutLeftSide 
-            register={register}
-            errors={errors} 
+        <CheckoutLeftSide
+          register={register}
+          errors={errors}
+          setValue={setValue}
         />
         {!loading && (
           <CheckoutRightSide

@@ -28,7 +28,6 @@ const CategoryProducts =() =>{
         }
     },[dispatch, params.name])
     
-    
     return(
         <>
             <div className={style['category-main-head']}>

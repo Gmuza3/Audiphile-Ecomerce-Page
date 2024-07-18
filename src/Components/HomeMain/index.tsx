@@ -86,7 +86,7 @@ const HomeMain =() =>{
                                             {{<div>...loading</div>}}
                                         }
                                     }} 
-                                    buttonName={'btn-link3'}
+                                    buttonName={'btn-link2'}
                                 />
                             </div>
                         </div>
