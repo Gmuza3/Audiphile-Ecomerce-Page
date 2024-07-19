@@ -14,7 +14,13 @@
     gap: 30px;
     padding-top: 56px;
 }
-
+.alertWrapper{
+    position: absolute;
+    top: 12%;
+    padding: 0px 165px;
+    left: 0%;
+    min-width: 250px;
+}
 .spinnerWrapper {
     position: absolute;
     top: 150px;
@@ -272,7 +278,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 33px;
-    max-height: 80vh; /* Allow space for scrolling */
+    max-height: 80vh; 
     overflow-y: auto;
 }
 .orderModal .orderModal-zone .orderTextZone{
@@ -424,11 +430,12 @@
 @media (max-width:1240px) {
     .checkout-container{
         gap: 20px;
+
     }
 }
 @media (max-width:1180px) {
     .container{
-        padding: 160px 39px 116px;
+        padding: 145px 80px 116px;
     }
     .checkout-container{
         width: 100%;
@@ -442,10 +449,24 @@
     .checkout-container .checkout-rightSide{
         width: 100%;
     }
+    .alertWrapper{
+        padding: 0px 39px;
+    }
+}
+@media (max-width:1080px) {
+    .container{
+        padding: 150px 40px 116px;
+    }
+    .checkout-container{
+        padding-top: 48px;
+    }
 }
 @media (max-width:740px) {
     .container{
         padding:130px 24px 97px;
+    }
+    .alertWrapper{
+        padding: 0px 24px;
     }
     .checkout-container .checkout-leftSide{
        padding: 30px 24px;
@@ -519,50 +540,20 @@
         flex-direction: column;
         align-items: flex-start;
     }
+    .checkout-container{
+        padding-top: 24px;
+    }
 }
-
-/* @media (max-width:590px) {
-    .orderModal{
-        top: 54%;
-        padding: 0px 24px;
-    }
-    .orderModal .orderModal-zone{
-        gap: 23px;
-        padding: 32px;
-    }
-    .order-container-wrapper{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-    .order-container-wrapper .orderList{
-        width: 100%;
-    }
-    .order-container-wrapper .order-rightSide{
-        width: 100%;
-    }
-    .order-container-wrapper .order-rightSide  .order-priceSide{
-        width: 100%;
-        padding-top: 15px;
-        padding-bottom: 19px;
-    }
-    .orderModal .orderModal-zone .orderTextZone h3{
-        font-size: 24px;
-        line-height: 28px; 
-        letter-spacing: 0.857px;
-    }
-    .checkout-leftContainer-footer .footer-flex{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-} */
 
 @media (max-width:480px) {
     .spinnerWrapper {
         top: 110px;
+    }
+    .checkout-container{
+        padding-top: 24px;
+    }
+    .container{
+        padding-top: 108px;
     }
 }
 @media (max-height:840px) {
@@ -580,7 +571,6 @@
         top: 58%;
     }
     .orderModal .orderModal-zone .orderTextZone{
-        /* gap: 10px; */
         gap: 0px;
     }
     .orderModal .orderModal-zone{

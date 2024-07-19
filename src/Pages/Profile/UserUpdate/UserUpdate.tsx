@@ -7,13 +7,11 @@ import supabase from "../../../Config/supabaseConfig";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import { Alert } from "react-bootstrap";
-import { User } from '@supabase/auth-js';
 
 const UserUpdate = () => {
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const[user,setUser] = useState<User>()
     const{register,handleSubmit,formState:{errors},reset } = useForm<UserFormData>();
 
     const setUpdate = async(formData:UserFormData) =>{
@@ -38,7 +36,6 @@ const UserUpdate = () => {
                 throw error
             }
             if(user){
-                setUser(user)
                 reset({
                     email: user.user_metadata?.email,
                     userName: user.user_metadata?.userName,
@@ -103,7 +100,6 @@ const UserUpdate = () => {
                                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                                 message: 'Wrong Format',
                             },
-                            value:user?.user_metadata?.email
                         })}     
                         isError={Boolean(errors.email)}
                         textError={errors.email?.message}
@@ -118,7 +114,6 @@ const UserUpdate = () => {
                                 value: /^[a-zA-Z0-9]{4,16}$/,
                                 message: 'Username must be  between 4 to 16 characters long',
                             },
-                            value:user?.user_metadata.userName
                         })}     
                         isError={Boolean(errors.userName)}
                         textError={errors.userName?.message}
@@ -132,8 +127,7 @@ const UserUpdate = () => {
                             min:{
                                 value:14,
                                 message:'User must be over 16 years old'
-                            },
-                            value:user?.user_metadata?.age
+                            },    
                         })}     
                         isError={Boolean(errors.age)}
                         textError={errors.age?.message}
@@ -148,7 +142,6 @@ const UserUpdate = () => {
                                 value: /^[a-zA-Z\s]*$/,
                                 message: 'Country name should only contain letters',
                             },
-                            value:user?.user_metadata?.country
                         })}     
                         isError={Boolean(errors.country)}
                         textError={errors.country?.message}
@@ -163,8 +156,7 @@ const UserUpdate = () => {
                              pattern: {
                                 value: /^\+?\d{0,3}?[-.\s]?\d{1,3}[-.\s]?\d{1,4}[-.\s]?\d{1,4}$/,
                                 message: "Wrong Format!"
-                            },
-                            value:user?.user_metadata?.phone
+                            },                           
                         })}
                         isError={Boolean(errors.phone)}
                         textError={errors.phone?.message}
@@ -176,7 +168,7 @@ const UserUpdate = () => {
                         type="text"
                         inputName="signAddress"
                         {...register('address', {
-                            value:user?.user_metadata?.address
+                            
                         })}
                         isError={Boolean(errors.address)}
                         textError={errors.address?.message}
@@ -192,7 +184,6 @@ const UserUpdate = () => {
                                 value:5,
                                 message:'Zip Code Contains 4 Number'
                             },
-                            value:user?.user_metadata?.zip
                         })}
                         isError={Boolean(errors.zip)}
                         textError={errors.zip?.message}
@@ -208,7 +199,6 @@ const UserUpdate = () => {
                                 value: /^[a-zA-Z\s]*$/,
                                 message: 'City name should only contain letters',
                             },
-                            value:user?.user_metadata?.city
                         })}
                         isError={Boolean(errors.city)}
                         textError={errors.city?.message}

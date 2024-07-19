@@ -9,8 +9,7 @@
 }
 .alertWrapper{
     position: absolute;
-    top: 44%;
-    width: 19%;
+    top: 42%;
 }
 .logo-zone{
     width: 100%;
@@ -29,7 +28,7 @@
     border: 1px solid var(--white);
     border-radius: 6px;
     padding: 25px;
-    min-width: 20%;
+    min-width: 22%;
 }
 .sign-zone form h5{
     font-size: 22px;

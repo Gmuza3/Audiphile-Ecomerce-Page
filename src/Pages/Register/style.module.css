@@ -9,8 +9,8 @@
 }
 .alertWrapper{
     position: absolute;
-    top: 41%;
-    width: 20%;
+    top: 33%;
+    min-width: 250px;
 }
 .logo-zone{
     width: 100%;
@@ -68,9 +68,15 @@
     .register-zone form{
         padding: 25px 15px;
     }
+    .alertWrapper{
+        padding:0px 50px;
+    }
 }
 @media (max-width:480px) {
     .register-zone{
         padding: 50px 24px;
+    }
+    .alertWrapper{
+        padding: 0px 24px;
     }
 }

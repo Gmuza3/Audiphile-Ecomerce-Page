@@ -8,7 +8,7 @@ import { useAppselectore } from '../../Store';
 import { useForm } from 'react-hook-form';
 import Alert from 'react-bootstrap/Alert';
 import supabase from '../../Config/supabaseConfig';
-import { User } from '@supabase/auth-js';
+import { useNavigate } from 'react-router-dom';
 
 export type FormForPost = {
   name: string;
@@ -24,14 +24,14 @@ export type FormForPost = {
 };
 
 const CheckoutItems = () => {
-  const { cartData } = useAppselectore(state => state.cart);
+  const navigate =useNavigate();
+  const {cartData } = useAppselectore(state => state.cart);
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState<string>('');
   const [grandTotal, setGrandTotal] = useState<string>('');
   const [check, setCheck] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm<FormForPost>();
   const [show, setShow] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -44,7 +44,6 @@ const CheckoutItems = () => {
       if (error) throw error;
 
       if (user) {
-        setUser(user);
         reset({
           email: user.user_metadata?.email || '',
           name: user.user_metadata?.userName || '',
@@ -57,7 +56,7 @@ const CheckoutItems = () => {
         });
       }
     } catch (error) {
-      setError(error instanceof Error ? error.message : String(error));
+        setError(error instanceof Error ? error.message : String(error));
     }
   }, [reset]);
 
@@ -89,6 +88,27 @@ const CheckoutItems = () => {
           <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
           </Spinner>
+        </div>
+      )}
+      {error && (
+        <div className={style.alertWrapper}>
+          <Alert variant="danger" >
+              <Alert.Heading>ERROR</Alert.Heading>
+              <p>
+              {error}
+              <div style={{paddingTop:"15px"}}>
+                  <Button 
+                      text={'Close Error Message'} 
+                      isLink={true} 
+                      buttonName={'active-gray'}
+                      handleClick={() => {
+                        setError(null)
+                        navigate('/')
+                      }} 
+                  />
+              </div>
+              </p>
+          </Alert>
         </div>
       )}
       {show && (
