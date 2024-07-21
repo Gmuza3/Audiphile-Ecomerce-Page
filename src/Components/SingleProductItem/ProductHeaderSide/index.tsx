@@ -41,7 +41,7 @@ const ProductHeaderSide = ({
             dispatch(changeCartCount({ data: singleData, newCount: inputValue }));
         }
     }, [dispatch, inputValue, singleData, toggleCart]);
-
+    
     return (
         <div className={style["product-headerSide"]}>
             <div className={style["product-imgSide"]}>

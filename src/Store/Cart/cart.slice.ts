@@ -10,9 +10,9 @@ const initialState: InitialState = {
 }
 
 const CartSlice = createSlice({
-    name:"cart",
+    name: "cart",
     initialState,
-    reducers:{
+    reducers: {
         changeCartCount: (state, action: PayloadAction<{ data: Products, newCount: number }>) => {
             const { data, newCount } = action.payload;
             const itemIndex = state.cartData.findIndex(item => item.id === data.id);
@@ -22,25 +22,14 @@ const CartSlice = createSlice({
                 state.cartData[itemIndex].count = newCount;
             }
         },
-        removeItem:(state,action:PayloadAction<string>) =>{
-            state.cartData =state.cartData.filter((item) =>{
-                return item.id !== action.payload
-            })
+        removeItem: (state, action: PayloadAction<string>) => {
+            state.cartData = state.cartData.filter(item => item.id !== action.payload);
         },
-        handleTotalPirce:(state,action:PayloadAction<number>) =>{
-            state.cartData = state.cartData.reduce((acc, item) => {
-                acc.push({
-                    ...item,
-                    newPrice: action.payload * item.price,
-                });
-                return acc;
-            }, [] as Products[]);
-        },
-        removeAll:(state) =>{
+        removeAll: (state) => {
             state.cartData = [];
         }
     }
-})
+});
 
-export default CartSlice.reducer
-export const{changeCartCount,removeItem,removeAll,handleTotalPirce} = CartSlice.actions
+export default CartSlice.reducer;
+export const { changeCartCount, removeItem, removeAll } = CartSlice.actions;
