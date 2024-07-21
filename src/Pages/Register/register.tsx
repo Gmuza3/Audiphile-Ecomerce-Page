@@ -140,7 +140,7 @@ const Register = () => {
                         },
                         pattern: {
                             value: /^[a-zA-Z0-9]{3,16}$/,
-                            message: 'Username must be  between 4 to 16 characters long',
+                            message: 'Username must be between 4 to 16 characters',
                         },
                     })}     
                     isError={Boolean(errors.userName)}
@@ -176,7 +176,7 @@ const Register = () => {
                         },
                         pattern: {
                             value: /^[a-zA-Z\s]*$/,
-                            message: 'Country name should only contain letters and spaces',
+                            message: 'Country name should only contain letters',
                         },
                     })}     
                     isError={Boolean(errors.country)}

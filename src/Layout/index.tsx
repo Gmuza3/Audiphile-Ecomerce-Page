@@ -18,15 +18,16 @@ const Layout = () => {
 
     const toggleCart = () => {
         setIsCartOpen(prev => !prev);
+        setBurgerMenuOpen(false)
     };
     const toggleMenu = () => {
         setBurgerMenuOpen(prev => !prev);
+        setIsCartOpen(false)
     };
     const closeModal = () => {
         setIsCartOpen(false);
         setBurgerMenuOpen(false);
     };
-
     useEffect(() => {
         dispatch(getData())
         if (isCartOpen) {
@@ -37,6 +38,10 @@ const Layout = () => {
     }, [dispatch, isCartOpen]);
 
     const isSignInPage = location.pathname === "/login" || location.pathname === '/register';
+
+    useEffect(() => {
+        closeModal();
+    }, [location]);
 
     return (
         <div className={style.zone}>
