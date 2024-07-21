@@ -1,5 +1,6 @@
 import { Includes } from '../../../Static/type'
 import style from '../style.module.css'
+
 type Props ={
     features:string,
     includes:Includes[]

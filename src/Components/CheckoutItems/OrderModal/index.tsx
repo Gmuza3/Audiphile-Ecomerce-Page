@@ -98,7 +98,7 @@ const OrderModal =({grandTotal,cartData}:Props) =>{
                     </div>
                 </div>
             </div>
-            <div style={{width:"100%",paddingTop:"13px"}}>
+            <div className={style['order-buttonZone']}>
                 <Button
                     buttonName='btn-primary-100'
                     text="BACK TO HOME"

@@ -20,8 +20,8 @@ const Layout = () => {
         setBurgerMenuOpen(prev => !prev);
     };
     const closeModal = () => {
-        setIsCartOpen(() => false);
-        setBurgerMenuOpen(() => false);
+        setIsCartOpen(false);
+        setBurgerMenuOpen(false);
     };
 
     useEffect(() => {
@@ -47,7 +47,7 @@ const Layout = () => {
             <Routers toggleCart={toggleCart} />
             {!isSignInPage && <Footer />}
             <div className={`${isCartOpen ? cartStyle['active'] : cartStyle['none']}`}>
-                <Cart closeModal={closeModal} />
+                <Cart closeModal={closeModal} setIsCartOpen={setIsCartOpen} />
             </div>
         </div>
     );

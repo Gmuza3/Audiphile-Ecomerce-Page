@@ -13,7 +13,7 @@ import Hero from './Hero.tsx'
 const HomeMain =() =>{
     const dispatch = useAppDispatch();
     const navigate = useNavigate()
-    const{data} =useAppselectore(state => state.products)
+    const{data} = useAppselectore(state => state.products)
     useEffect(() =>{
         dispatch(getData())
         window.scrollTo({top:0,behavior:"instant"})

@@ -58,7 +58,7 @@ const Profile = () => {
                 <div className={style['left-side']}>
                     <h1>Profile</h1>
                     <div className={style['user-info']}>
-                        <h3>Username: <p style={{textTransform:"capitalize"}}>{data?.user_metadata?.userName}</p></h3>
+                        <h3>Username: <p>{data?.user_metadata?.userName}</p></h3>
                         <h3>Email: <p>{data?.user_metadata?.email}</p></h3>
                         <h3>Country: <p>{data?.user_metadata?.country}</p></h3>
                         <h3>City: <p>{data?.user_metadata?.city}</p></h3>

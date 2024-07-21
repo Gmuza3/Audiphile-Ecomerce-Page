@@ -31,7 +31,7 @@
     background-color: var(--white);
     border: 1px solid var(--white);
     border-radius: 6px;
-    padding: 25px 35px;
+    padding: 30px 35px;
 }
 
 .register-zone form .input-grid-zone{

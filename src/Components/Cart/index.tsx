@@ -7,14 +7,21 @@ import { useNavigate } from "react-router-dom";
 
 type Props={
     closeModal:() => void
+    setIsCartOpen: (open: boolean) => void;
 }
 
-const Cart = ({closeModal}:Props) => {
+const Cart = ({closeModal,setIsCartOpen}:Props) => {
     const dispatch = useAppDispatch();
     const { cartData } = useAppselectore(state => state.cart);
-    const[total,setTotal]=useState<string>();
+    const [total, setTotal] = useState<string>("0.00");
     const navigate = useNavigate()
     
+    useEffect(() =>{
+        if(cartData.length < 1){
+            setIsCartOpen(false);
+        }
+    },[cartData, setIsCartOpen])
+
     const handleDecrease = useCallback((itemId: string) => {
         const item = cartData.find(item => item.id === itemId);
         if (item) {
@@ -25,7 +32,7 @@ const Cart = ({closeModal}:Props) => {
                 dispatch(changeCartCount({ data: item, newCount }));
             }
         }
-    }, [cartData, dispatch]);
+    }, [cartData,dispatch]);
 
     const handleIncrease = useCallback((itemId:string) => {
         const item = cartData.find(item => item.id === itemId);
@@ -39,13 +46,8 @@ const Cart = ({closeModal}:Props) => {
     useEffect(() => {
         const totalAmount = cartData.reduce((acc, item) => acc + (item.count as number) * item.price, 0);
         setTotal(totalAmount >= 1000 ? (totalAmount / 1000).toFixed(3).replace('.', ',') : totalAmount.toString());
-    }, [cartData]);
+    }, [cartData, closeModal]);
     
-
-    if (total === undefined) {
-        return <div><p>Not found information</p></div>;
-    }
-
     return (
         <div className={style['cart-container']}>
                 <div className={style['cart-containerHead']}>
@@ -54,9 +56,7 @@ const Cart = ({closeModal}:Props) => {
                         text={"Remove all"}
                         handleClick={() => {
                             dispatch(removeAll());
-                            if(cartData.length < 1){
-                                closeModal();
-                            }
+                            closeModal();
                         }
                         }
                         buttonName={'btn-remove-link'}

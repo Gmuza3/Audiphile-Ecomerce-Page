@@ -51,6 +51,7 @@
 .user-info h3 p{
     font-size: 1rem;
     font-weight: 400;
+    text-transform: capitalize;
 }
 
 @media (max-width:1180px) {
@@ -69,7 +70,7 @@
         flex-direction: column;
     }
     .user .right-side{
-        padding-top: 20px;
+        padding-top: 25px;
     }
 }
 @media (max-width:540px) {
@@ -82,6 +83,9 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+    }
+    .user{
+        padding: 30px;
     }
 }
 @media (max-height:720px){

@@ -479,7 +479,6 @@
     }
     .other-products .list-zone li .list-item-imgZone .mobileImg{
         display: block;
-        min-height: 140px;
     }
     .other-products{
         gap: 40px;

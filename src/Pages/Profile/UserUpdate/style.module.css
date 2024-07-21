@@ -21,7 +21,7 @@
     background-color: var(--white);
     border: 1px solid var(--white);
     border-radius: 6px;
-    padding: 25px 35px;
+    padding: 35px;
 }
 .update-zone form .input-grid-zone{
     padding-top: 15px;
@@ -41,6 +41,10 @@
 }
 .regButton-zone{
     padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
 }
 
 @media (max-width:840px) {

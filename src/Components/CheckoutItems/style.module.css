@@ -295,6 +295,7 @@
     line-height: 36px; 
     letter-spacing: 1.125px;
     text-transform: uppercase;
+    min-width: 260px;
 }
 .orderModal .orderModal-zone .orderTextZone span{
     color: rgba(0, 0, 0, 0.5);
@@ -307,7 +308,7 @@
    width: 100%;
    display: flex;
    justify-content: space-between;
-
+   min-height: 150px;
 }
 .order-container-wrapper .orderList{
     width: 60%;
@@ -427,6 +428,10 @@
     align-items: flex-start;
     gap: 33px;
 }
+.order-buttonZone{
+    width: 100%;
+    padding-top: 13px;
+}
 @media (max-width:1240px) {
     .checkout-container{
         gap: 20px;
@@ -543,6 +548,9 @@
     .checkout-container{
         padding-top: 24px;
     }
+    .order-buttonZone{
+        padding-top: 0px;
+    }
 }
 
 @media (max-width:480px) {
@@ -556,14 +564,9 @@
         padding-top: 108px;
     }
 }
-@media (max-height:840px) {
+@media (max-height:740px) {
     .orderModal{
-        top: 57%;
-    }
-    .activeHeight{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        top: 55%;
     }
 }
 @media (max-height:675px) {
@@ -579,7 +582,7 @@
     }
 }
 
-@media (max-height:600px) {
+@media (max-height:480px) {
     .orderModal{
         top: 59%;
     }

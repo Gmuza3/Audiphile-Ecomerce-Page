@@ -15,7 +15,7 @@ const CategoryProducts =() =>{
     const params =useParams();
 
     useEffect(() =>{
-        setLoading(true)
+        setLoading(true);
         if(params.name !== undefined){
             setTimeout(() =>{
                 setLoading(false)

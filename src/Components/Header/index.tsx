@@ -13,8 +13,8 @@ type Props ={
 
 const Header =({toggleCart,toggleMenu}:Props) =>{
     const navigate = useNavigate();
-
     const {cartData} = useAppselectore(state => state.cart)
+    
     return(
         <>
             <div className={style["header-zone"]}>

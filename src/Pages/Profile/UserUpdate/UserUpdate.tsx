@@ -206,6 +206,7 @@ const UserUpdate = () => {
                 </div>
                 <div className={style['regButton-zone']}>
                     <Button buttonType="submit" text={"Update"} buttonName={"btn-primary-100"} />
+                    <Button buttonType="button" text={"Close"} buttonName={"btn-primary-100"} handleClick={() => navigate('/profile')} />
                 </div>
         </form>
     </div>
