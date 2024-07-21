@@ -1,7 +1,7 @@
 # React + TypeScript + Vite
 
 If you want to function the project,  write it in the terminal of visual code:
-"npx json-server public/data/data.json", to  take data(products) from data json
+"npx json-server public/data/data.json", to  take data(products) from data json, then click url with 'ctrl' + 'mouse left Button' and start project use.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
