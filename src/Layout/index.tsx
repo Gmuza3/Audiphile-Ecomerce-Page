@@ -7,8 +7,11 @@ import Cart from "../Components/Cart";
 import { useEffect, useState } from "react";
 import ProductBoxes from "../Components/ProductBoxes";
 import { useLocation } from "react-router-dom";
+import { useAppDispatch } from "../Store";
+import { getData } from "../Store/Products";
 
 const Layout = () => {
+    const dispatch = useAppDispatch();
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
     const location = useLocation();
@@ -25,12 +28,13 @@ const Layout = () => {
     };
 
     useEffect(() => {
+        dispatch(getData())
         if (isCartOpen) {
             document.body.classList.add(cartStyle['no-scroll']);
         } else {
             document.body.classList.remove(cartStyle['no-scroll']);
         }
-    }, [isCartOpen]);
+    }, [dispatch, isCartOpen]);
 
     const isSignInPage = location.pathname === "/login" || location.pathname === '/register';
 

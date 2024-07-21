@@ -4,7 +4,6 @@ import yx1EarphonesImg from '../../../public/assets/home/desktop/image-earphones
 import CircleImg from '../../../public/assets/home/desktop/pattern-circles.svg'
 import { useAppDispatch, useAppselectore } from '../../Store'
 import { useEffect } from 'react'
-import { getData } from '../../Store/Products'
 import ProductBoxes from '../ProductBoxes'
 import Button from '../UI/Button'
 import { useNavigate } from 'react-router-dom'
@@ -15,7 +14,6 @@ const HomeMain =() =>{
     const navigate = useNavigate()
     const{data} = useAppselectore(state => state.products)
     useEffect(() =>{
-        dispatch(getData())
         window.scrollTo({top:0,behavior:"instant"})
     },[dispatch])
     return(
