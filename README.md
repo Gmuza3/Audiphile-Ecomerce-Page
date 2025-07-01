@@ -1,7 +1,25 @@
-# React + TypeScript + Vite
+# ⚛️ React + TypeScript + Vite
 
-If you want to function the project,  write it in the terminal of visual code:
-"npx json-server public/data/data.json", to  take data(products) from data json, then click url with 'ctrl' + 'mouse left Button' and start project use.
+This project is built using **React**, **TypeScript**, **Vite**, and supports **HMR (Hot Module Replacement)** with ESLint rules.
+---
+
+## 🚀 How to Run the Project
+
+To run the project and load product data from the mock JSON file, follow these steps:
+
+1. Open the terminal in Visual Studio Code
+2. Run the following command to start the mock API server:
+
+```install
+npm install
+
+```bash
+npx json-server public/data/data.json
+
+```run app
+npm run dev
+
+----------------------------------------------------------------------
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
