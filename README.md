@@ -1,6 +1,9 @@
-# ⚛️ React + TypeScript + Vite
+# ⚛️ React + Vite + TypeScript + Supabase + Redux
 
-This project is built using **React**, **TypeScript**, **Vite**, and supports **HMR (Hot Module Replacement)** with ESLint rules.
+A modern web application built with **React**, **TypeScript**, and **Vite**, featuring seamless **Hot Module Replacement (HMR)** and robust code quality ensured by **ESLint**.
+
+This project integrates **Supabase** for backend services and **Redux** for state management, providing a scalable and maintainable architecture.
+
 ---
 
 ## 🚀 How to Run the Project
